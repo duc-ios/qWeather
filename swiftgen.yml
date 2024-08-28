@@ -1,0 +1,11 @@
+strings:
+  inputs: qWeather/Resources/en.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: qWeather/Generated/Strings.swift
+xcassets:
+  inputs:
+    - qWeather/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: qWeather/Generated/Assets.swift
