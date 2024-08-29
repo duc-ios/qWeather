@@ -10,8 +10,11 @@ import Foundation
 final class DetailDataStore: BaseDataStore {
     enum State: Equatable {
         case loading(Bool),
-             error(AppError)
+             error(AppError),
+             currentWeather(WeatherModel)
     }
 
+    var city: CityModel!
     @Published var state: State?
+    @Published var weather: WeatherModel?
 }

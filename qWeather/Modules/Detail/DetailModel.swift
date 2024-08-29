@@ -18,5 +18,15 @@ enum Detail {
             var error: AppError
         }
     }
+    
+    enum GetCurrentWeather {
+        struct Request {
+            var city: CityModel
+        }
+        
+        struct Response {
+            var weather: WeatherModel
+        }
+    }
 }
 // swiftlint:enable nesting

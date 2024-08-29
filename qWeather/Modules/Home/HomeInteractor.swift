@@ -39,7 +39,7 @@ class HomeInteractor {
                 }
             }
         } catch {
-            presenter.presentError(response: .init(error: .error(error)))
+            showError(request: .init(error: error))
         }
     }
 
@@ -75,7 +75,7 @@ extension HomeInteractor: HomeBusinessLogic {
             savedCities = try repository.read("isSaved = true")
             presenter.presentCities(response: .init(cities: cities))
         } catch {
-            presenter.presentError(response: .init(error: .error(error)))
+            showError(request: .init(error: error))
         }
     }
 
@@ -88,7 +88,7 @@ extension HomeInteractor: HomeBusinessLogic {
                 cities = try repository.read(String(format: "name CONTAINS[c] '%@'", request.keyword))
                 presenter.presentCities(response: .init(cities: cities))
             } catch {
-                presenter.presentError(response: .init(error: .error(error)))
+                showError(request: .init(error: error))
             }
         }
     }
@@ -107,7 +107,7 @@ extension HomeInteractor: HomeBusinessLogic {
                 presenter.presentError(response: .init(error: .message(L10n.notFound)))
             }
         } catch {
-            presenter.presentError(response: .init(error: .error(error)))
+            showError(request: .init(error: error))
         }
     }
 }

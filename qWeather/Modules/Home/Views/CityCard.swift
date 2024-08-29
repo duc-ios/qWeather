@@ -15,7 +15,7 @@ struct CityCard: View {
     var body: some View {
         Button(action: action) {
             HStack {
-                Text("\(city.name) - \(city.country)")
+                Text("\(city.name), \(city.country)")
                 Spacer()
                 Button(action: saveAction) {
                     if city.isSaved == true {

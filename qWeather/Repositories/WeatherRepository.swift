@@ -5,24 +5,22 @@
 //  Created by Duc on 29/8/24.
 //
 
+import Moya
 import SwiftUI
 
 // MARK: - WeatherRepository
 
 protocol WeatherRepository {
-    func get(city: CityModel) throws -> [WeatherModel]
+    func getCurrentWeather(lat: Double, lon: Double) async throws -> WeatherModel
 }
 
-// MARK: - WeatherRepository
+// MARK: - WeatherRepositoryImp
 
 class WeatherRepositoryImp: WeatherRepository {
-    private let db: RealmDB
+    let provider = MoyaProvider<WeatherService>()
 
-    init(db: RealmDB = RealmDB()) {
-        self.db = db
-    }
-    
-    func get(city: CityModel) throws -> [WeatherModel] {
-        return []
+    func getCurrentWeather(lat: Double, lon: Double) async throws -> WeatherModel {
+        let weather: WeatherModel = try await provider.async.request(.weather(lat: lat, lon: lon))
+        return weather
     }
 }

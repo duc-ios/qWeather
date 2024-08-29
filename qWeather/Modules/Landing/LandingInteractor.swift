@@ -33,19 +33,19 @@ extension LandingInteractor: LandingBusinessLogic {
     }
     
     func getCities(request: Landing.GetCities.Request) {
-        presenter.presentIsLoading(isLoading: true)
+        showLoading(isLoading: true)
         let error = AppError.message("Cannot parse cities json")
         do {
             if let _: CityModel = try repository.read(primaryKey: 833) {
-                presenter.presentIsLoading(isLoading: false)
+                showLoading(isLoading: false)
                 presenter.presentHomeOrOnBoarding(response: .init())
             } else {
                 if let url = Bundle.main.url(forResource: "city.list.min", withExtension: "json") {
                     Task {
                         let data = try Data(contentsOf: url)
-                        let cities = try [CityModel](data)
+                        let cities = try [CityModel](data: data)
                         try repository.create(cities)
-                        presenter.presentIsLoading(isLoading: false)
+                        showLoading(isLoading: false)
                         presenter.presentHomeOrOnBoarding(response: .init())
                     }
                 } else {
@@ -53,7 +53,7 @@ extension LandingInteractor: LandingBusinessLogic {
                 }
             }
         } catch {
-            presenter.presentError(response: .init(error: .error(error)))
+            showError(request: .init(error: error))
         }
     }
 }

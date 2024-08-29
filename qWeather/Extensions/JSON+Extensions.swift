@@ -43,7 +43,7 @@ extension JSONEncoder {
 }
 
 extension Decodable {
-    init(_ data: Any) throws {
+    init(data: Any) throws {
         let data = try (data as? Data) ?? (JSON(data).rawData())
         self = try JSONDecoder.snakeCase.decode(Self.self, from: data)
     }

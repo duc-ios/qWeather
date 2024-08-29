@@ -15,7 +15,7 @@ struct AppView: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            ProgressView()
+            ProgressView().scaleEffect(.init(width: 2, height: 2))
                 .navigationDestination(for: Route.self) {
                     switch $0 {
                     case .landing:

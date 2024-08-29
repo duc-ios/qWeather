@@ -30,6 +30,10 @@
 		899072592C80077300BF43C2 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072582C80077300BF43C2 /* DB.swift */; };
 		8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725A2C80117200BF43C2 /* CityRepository.swift */; };
 		8990725E2C801CA300BF43C2 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725D2C801CA300BF43C2 /* Configs.swift */; };
+		899072612C801ECC00BF43C2 /* Moya+Concurency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072602C801ECC00BF43C2 /* Moya+Concurency.swift */; };
+		899072632C80233B00BF43C2 /* Num+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072622C80233B00BF43C2 /* Num+Extensions.swift */; };
+		899072662C80386400BF43C2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 899072652C80386400BF43C2 /* Kingfisher */; };
+		899072692C803E1400BF43C2 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072682C803E1400BF43C2 /* WeatherService.swift */; };
 		89C83B942C7F98E300942BD4 /* qWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B932C7F98E300942BD4 /* qWeatherApp.swift */; };
 		89C83B962C7F98E300942BD4 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B952C7F98E300942BD4 /* AppView.swift */; };
 		89C83B982C7F98E400942BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B972C7F98E400942BD4 /* Assets.xcassets */; };
@@ -123,6 +127,9 @@
 		899072582C80077300BF43C2 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		8990725A2C80117200BF43C2 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 		8990725D2C801CA300BF43C2 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
+		899072602C801ECC00BF43C2 /* Moya+Concurency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya+Concurency.swift"; sourceTree = "<group>"; };
+		899072622C80233B00BF43C2 /* Num+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Num+Extensions.swift"; sourceTree = "<group>"; };
+		899072682C803E1400BF43C2 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		89C83B902C7F98E300942BD4 /* qWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C83B932C7F98E300942BD4 /* qWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherApp.swift; sourceTree = "<group>"; };
 		89C83B952C7F98E300942BD4 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -170,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899072662C80386400BF43C2 /* Kingfisher in Frameworks */,
 				899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */,
 				892FF6A82C7FB5FC004FBBEA /* SwiftyJSON in Frameworks */,
 				89C83C092C7FA1C000942BD4 /* Moya in Frameworks */,
@@ -235,6 +243,21 @@
 			path = Configs;
 			sourceTree = "<group>";
 		};
+		8990725F2C801D2F00BF43C2 /* Open Weather Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Open Weather Map";
+			sourceTree = "<group>";
+		};
+		899072672C803E0800BF43C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				899072682C803E1400BF43C2 /* WeatherService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		89C83B872C7F98E300942BD4 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +282,7 @@
 		89C83B922C7F98E300942BD4 /* qWeather */ = {
 			isa = PBXGroup;
 			children = (
+				899072672C803E0800BF43C2 /* Services */,
 				8990725C2C801C9100BF43C2 /* Configs */,
 				892FF6AB2C7FC793004FBBEA /* Info.plist */,
 				89C83BBD2C7F990300942BD4 /* App */,
@@ -337,6 +361,7 @@
 		89C83BCA2C7F999A00942BD4 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
+				8990725F2C801D2F00BF43C2 /* Open Weather Map */,
 				89C83BFE2C7F9B2B00942BD4 /* DB */,
 			);
 			path = "Data Sources";
@@ -369,6 +394,8 @@
 				89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */,
 				89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */,
 				89C83BD12C7F99E800942BD4 /* String+Extensions.swift */,
+				899072602C801ECC00BF43C2 /* Moya+Concurency.swift */,
+				899072622C80233B00BF43C2 /* Num+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,6 +517,7 @@
 				89C83C082C7FA1C000942BD4 /* Moya */,
 				892FF6A72C7FB5FC004FBBEA /* SwiftyJSON */,
 				899072542C7FFA0B00BF43C2 /* RealmSwift */,
+				899072652C80386400BF43C2 /* Kingfisher */,
 			);
 			productName = qWeather;
 			productReference = 89C83B902C7F98E300942BD4 /* qWeather.app */;
@@ -567,6 +595,7 @@
 				89C83C022C7F9DD800942BD4 /* XCRemoteSwiftPackageReference "Moya" */,
 				892FF6A62C7FB5FC004FBBEA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				899072642C80386400BF43C2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 89C83B912C7F98E300942BD4 /* Products */;
 			projectDirPath = "";
@@ -616,6 +645,7 @@
 				89C83BD52C7F99E800942BD4 /* String+Extensions.swift in Sources */,
 				89C83BDF2C7F9A3E00942BD4 /* LinearButtonStyle.swift in Sources */,
 				892FF6A52C7FB5CC004FBBEA /* Codable+Extensions.swift in Sources */,
+				899072612C801ECC00BF43C2 /* Moya+Concurency.swift in Sources */,
 				892FF6A42C7FB5CC004FBBEA /* JSON+Extensions.swift in Sources */,
 				89C83BE62C7F9A4A00942BD4 /* AppError.swift in Sources */,
 				892FF6AE2C7FE0FD004FBBEA /* CityCard.swift in Sources */,
@@ -637,6 +667,7 @@
 				89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */,
 				89C83BE02C7F9A3E00942BD4 /* PageControl.swift in Sources */,
 				892FF6AA2C7FB655004FBBEA /* ObjectAssociation.swift in Sources */,
+				899072692C803E1400BF43C2 /* WeatherService.swift in Sources */,
 				89C83B962C7F98E300942BD4 /* AppView.swift in Sources */,
 				89C83BC52C7F995300942BD4 /* Route.swift in Sources */,
 				89C83BD42C7F99E800942BD4 /* SafeArea+Extensions.swift in Sources */,
@@ -653,6 +684,7 @@
 				892FF6CF2C7FF5CA004FBBEA /* DetailDataStore.swift in Sources */,
 				892FF6D02C7FF5CA004FBBEA /* DetailInteractor.swift in Sources */,
 				892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */,
+				899072632C80233B00BF43C2 /* Num+Extensions.swift in Sources */,
 				892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */,
 				899072592C80077300BF43C2 /* DB.swift in Sources */,
 				892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */,
@@ -1021,6 +1053,14 @@
 				minimumVersion = 10.53.0;
 			};
 		};
+		899072642C80386400BF43C2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 		89C83C022C7F9DD800942BD4 /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -1041,6 +1081,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		899072652C80386400BF43C2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 899072642C80386400BF43C2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		89C83C082C7FA1C000942BD4 /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;
