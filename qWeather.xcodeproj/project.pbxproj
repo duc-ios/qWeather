@@ -29,6 +29,7 @@
 		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
 		899072592C80077300BF43C2 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072582C80077300BF43C2 /* DB.swift */; };
 		8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725A2C80117200BF43C2 /* CityRepository.swift */; };
+		8990725E2C801CA300BF43C2 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725D2C801CA300BF43C2 /* Configs.swift */; };
 		89C83B942C7F98E300942BD4 /* qWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B932C7F98E300942BD4 /* qWeatherApp.swift */; };
 		89C83B962C7F98E300942BD4 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B952C7F98E300942BD4 /* AppView.swift */; };
 		89C83B982C7F98E400942BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B972C7F98E400942BD4 /* Assets.xcassets */; };
@@ -121,6 +122,7 @@
 		899072562C80035F00BF43C2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		899072582C80077300BF43C2 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		8990725A2C80117200BF43C2 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
+		8990725D2C801CA300BF43C2 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		89C83B902C7F98E300942BD4 /* qWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C83B932C7F98E300942BD4 /* qWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherApp.swift; sourceTree = "<group>"; };
 		89C83B952C7F98E300942BD4 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,14 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		8990725C2C801C9100BF43C2 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				8990725D2C801CA300BF43C2 /* Configs.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		89C83B872C7F98E300942BD4 = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +259,7 @@
 		89C83B922C7F98E300942BD4 /* qWeather */ = {
 			isa = PBXGroup;
 			children = (
+				8990725C2C801C9100BF43C2 /* Configs */,
 				892FF6AB2C7FC793004FBBEA /* Info.plist */,
 				89C83BBD2C7F990300942BD4 /* App */,
 				89C83BCB2C7F99A700942BD4 /* Modules */,
@@ -646,6 +657,7 @@
 				899072592C80077300BF43C2 /* DB.swift in Sources */,
 				892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */,
 				89C83BFC2C7F9B2600942BD4 /* MockDB.swift in Sources */,
+				8990725E2C801CA300BF43C2 /* Configs.swift in Sources */,
 				89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */,
 				89C83C202C7FB04A00942BD4 /* Searchable_iOS16.swift in Sources */,
 				89C83C1B2C7FAC6500942BD4 /* Assets.swift in Sources */,
