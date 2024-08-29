@@ -14,13 +14,13 @@ protocol LandingBusinessLogic {
 }
 
 class LandingInteractor {
-    init(presenter: LandingPresentationLogic, database: RealmDatabase) {
+    init(presenter: LandingPresentationLogic, repository: CityRepository) {
         self.presenter = presenter
-        self.database = database
+        self.repository = repository
     }
 
     private let presenter: LandingPresentationLogic
-    private let database: RealmDatabase
+    private let repository: CityRepository
 }
 
 extension LandingInteractor: LandingBusinessLogic {
@@ -36,7 +36,7 @@ extension LandingInteractor: LandingBusinessLogic {
         presenter.presentIsLoading(isLoading: true)
         let error = AppError.message("Cannot parse cities json")
         do {
-            if let _: CityModel = try database.read(primayKey: 833) {
+            if let _: CityModel = try repository.read(primaryKey: 833) {
                 presenter.presentIsLoading(isLoading: false)
                 presenter.presentHomeOrOnBoarding(response: .init())
             } else {
@@ -44,7 +44,7 @@ extension LandingInteractor: LandingBusinessLogic {
                     Task {
                         let data = try Data(contentsOf: url)
                         let cities = try [CityModel](data)
-                        try database.create(cities)
+                        try repository.create(cities)
                         presenter.presentIsLoading(isLoading: false)
                         presenter.presentHomeOrOnBoarding(response: .init())
                     }

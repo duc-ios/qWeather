@@ -6,31 +6,37 @@
 //
 
 import Foundation
-import SwiftData
+import RealmSwift
 
-final class MockDB: Database {
-    typealias Model = Any
-    
+// MARK: - MockDB
+
+struct MockDB: DB {
+    typealias Model = Object
+
     func create<Model>(_ items: Model...) throws {
         throw AppError.unimplemented
     }
-    
+
     func create<Model>(_ items: [Model]) throws {
         throw AppError.unimplemented
     }
-    
-    func read<Model>() throws -> [Model] {
+
+    func read<Model>(primaryKey: Any) throws -> Model? {
         throw AppError.unimplemented
     }
     
-    func update<Model>(_ item: Model) throws {
+    func read<Model>(_ predicate: String?) throws -> [Model] {
         throw AppError.unimplemented
     }
-    
+
+    func update(_ handler: () -> Void) throws {
+        throw AppError.unimplemented
+    }
+
     func delete<Model>(_ items: Model...) throws {
         throw AppError.unimplemented
     }
-    
+
     func delete<Model>(_ items: [Model]) throws {
         throw AppError.unimplemented
     }

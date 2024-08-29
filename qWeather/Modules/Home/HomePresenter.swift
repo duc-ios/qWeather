@@ -12,6 +12,7 @@ protocol HomePresentationLogic {
     func presentAlert(response: Home.ShowAlert.Response)
     func presentError(response: Home.ShowError.Response)
     func presentGreeting(response: Home.GetGreeting.Response)
+    func presentSavedCities(response: Home.GetSavedCities.Response)
     func presentCities(response: Home.SearchCities.Response)
 }
 
@@ -40,7 +41,11 @@ extension HomePresenter: HomePresentationLogic {
         view.store.state = .greeting(response.greeting)
     }
     
+    func presentSavedCities(response: Home.GetSavedCities.Response) {
+        view.store.state = .savedCities(response.savedCities)
+    }
+    
     func presentCities(response: Home.SearchCities.Response) {
-        view.store.state = .cities(savedCities: response.savedCities, cities: response.cities)
+        view.store.state = .cities(response.cities)
     }
 }

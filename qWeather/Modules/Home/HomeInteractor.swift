@@ -23,15 +23,28 @@ protocol HomeBusinessLogic {
 // MARK: - HomeInteractor
 
 class HomeInteractor {
-    init(presenter: HomePresentationLogic, database: RealmDatabase) {
+    init(presenter: HomePresentationLogic, repository: CityRepository) {
         self.presenter = presenter
-        self.database = database
-        
-        getSavedCities(request: .init())
+        self.repository = repository
+
+        do {
+            try repository.observe("isSaved = true") { [weak self] in
+                guard let self else { return }
+                switch $0 {
+                case .success(let cities):
+                    self.savedCities = Array(cities)
+                    presenter.presentSavedCities(response: .init(savedCities: self.savedCities))
+                case .failure(let error):
+                    presenter.presentError(response: .init(error: error))
+                }
+            }
+        } catch {
+            presenter.presentError(response: .init(error: .error(error)))
+        }
     }
 
     private let presenter: HomePresentationLogic
-    private let database: RealmDatabase
+    private let repository: CityRepository
 
     private let greeting = Greeting()
     private var cities = [CityModel]()
@@ -59,8 +72,8 @@ extension HomeInteractor: HomeBusinessLogic {
 
     func getSavedCities(request: Home.GetSavedCities.Request) {
         do {
-            savedCities = try database.read(predicateFormat: "isSaved = true")
-            presenter.presentCities(response: .init(savedCities: savedCities, cities: cities))
+            savedCities = try repository.read("isSaved = true")
+            presenter.presentCities(response: .init(cities: cities))
         } catch {
             presenter.presentError(response: .init(error: .error(error)))
         }
@@ -69,11 +82,11 @@ extension HomeInteractor: HomeBusinessLogic {
     func searchCities(request: Home.SearchCities.Request) {
         if request.keyword.isBlank {
             cities = []
-            presenter.presentCities(response: .init(savedCities: savedCities, cities: cities))
+            presenter.presentCities(response: .init(cities: cities))
         } else {
             do {
-                cities = try database.read(predicateFormat: "name CONTAINS[c] %@", args: request.keyword)
-                presenter.presentCities(response: .init(savedCities: savedCities, cities: cities))
+                cities = try repository.read(String(format: "name CONTAINS[c] '%@'", request.keyword))
+                presenter.presentCities(response: .init(cities: cities))
             } catch {
                 presenter.presentError(response: .init(error: .error(error)))
             }
@@ -82,15 +95,14 @@ extension HomeInteractor: HomeBusinessLogic {
 
     func updateCity(request: Home.UpdateCity.Request) {
         do {
-            if let city: CityModel = try database.read(primayKey: request.cityId) {
-                try database.update({
+            if let city: CityModel = try repository.read(primaryKey: request.cityId) {
+                try repository.update {
                     city.isSaved = request.isSaved
-                })
+                }
                 if let idx = cities.firstIndex(where: { $0.id == city.id }) {
                     cities[idx] = city
                 }
-                getSavedCities(request: .init())
-                presenter.presentCities(response: .init(savedCities: savedCities, cities: cities))
+                presenter.presentCities(response: .init(cities: cities))
             } else {
                 presenter.presentError(response: .init(error: .message(L10n.notFound)))
             }

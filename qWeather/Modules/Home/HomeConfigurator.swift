@@ -12,7 +12,7 @@ extension HomeView {
     ) -> HomeView {
         var view = self
         let presenter = HomePresenter(view: view)
-        let interactor = HomeInteractor(presenter: presenter, database: RealmDatabase())
+        let interactor = HomeInteractor(presenter: presenter, repository: CityRepositoryImp())
         view.interactor = interactor
         return view
     }

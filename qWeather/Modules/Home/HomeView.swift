@@ -94,9 +94,12 @@ struct HomeView: View, HomeDisplayLogic {
             store.greeting = greeting
         case .search(let keyword):
             interactor.searchCities(request: .init(keyword: keyword))
-        case .cities(let savedCities, let cities):
+        case .savedCities(let cities):
             withAnimation {
-                store.savedCities = savedCities
+                store.savedCities = cities
+            }
+        case .cities(let cities):
+            withAnimation {
                 store.cities = cities
             }
         default:

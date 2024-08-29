@@ -18,7 +18,7 @@ final class HomeDataStore: BaseDataStore {
              greeting(String),
              search(String),
              savedCities([CityModel]),
-             cities(savedCities: [CityModel], cities: [CityModel])
+             cities([CityModel])
     }
 
     var cancellables = Set<AnyCancellable>()

@@ -26,6 +26,9 @@
 		892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */; };
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
+		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
+		899072592C80077300BF43C2 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072582C80077300BF43C2 /* DB.swift */; };
+		8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725A2C80117200BF43C2 /* CityRepository.swift */; };
 		89C83B942C7F98E300942BD4 /* qWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B932C7F98E300942BD4 /* qWeatherApp.swift */; };
 		89C83B962C7F98E300942BD4 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B952C7F98E300942BD4 /* AppView.swift */; };
 		89C83B982C7F98E400942BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B972C7F98E400942BD4 /* Assets.xcassets */; };
@@ -37,7 +40,6 @@
 		89C83BC42C7F995300942BD4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC22C7F995300942BD4 /* Router.swift */; };
 		89C83BC52C7F995300942BD4 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC32C7F995300942BD4 /* Route.swift */; };
 		89C83BC72C7F996300942BD4 /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC62C7F996300942BD4 /* Greeting.swift */; };
-		89C83BC92C7F999100942BD4 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC82C7F999100942BD4 /* Database.swift */; };
 		89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */; };
 		89C83BD32C7F99E800942BD4 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */; };
 		89C83BD42C7F99E800942BD4 /* SafeArea+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */; };
@@ -57,7 +59,7 @@
 		89C83BF82C7F9A8900942BD4 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF22C7F9A8900942BD4 /* HomeModel.swift */; };
 		89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */; };
 		89C83BFC2C7F9B2600942BD4 /* MockDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFA2C7F9B2600942BD4 /* MockDB.swift */; };
-		89C83BFD2C7F9B2600942BD4 /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFB2C7F9B2600942BD4 /* RealmDatabase.swift */; };
+		89C83BFD2C7F9B2600942BD4 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */; };
 		89C83C092C7FA1C000942BD4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 89C83C082C7FA1C000942BD4 /* Moya */; };
 		89C83C172C7FAC0F00942BD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89C83C152C7FAC0F00942BD4 /* Localizable.strings */; };
 		89C83C1B2C7FAC6500942BD4 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83C182C7FAC6500942BD4 /* Assets.swift */; };
@@ -116,6 +118,9 @@
 		892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
+		899072562C80035F00BF43C2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		899072582C80077300BF43C2 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		8990725A2C80117200BF43C2 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 		89C83B902C7F98E300942BD4 /* qWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C83B932C7F98E300942BD4 /* qWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherApp.swift; sourceTree = "<group>"; };
 		89C83B952C7F98E300942BD4 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -130,7 +135,6 @@
 		89C83BC22C7F995300942BD4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89C83BC32C7F995300942BD4 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		89C83BC62C7F996300942BD4 /* Greeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Greeting.swift; sourceTree = "<group>"; };
-		89C83BC82C7F999100942BD4 /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SafeArea+Extensions.swift"; sourceTree = "<group>"; };
@@ -151,7 +155,7 @@
 		89C83BF22C7F9A8900942BD4 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		89C83BFA2C7F9B2600942BD4 /* MockDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDB.swift; sourceTree = "<group>"; };
-		89C83BFB2C7F9B2600942BD4 /* RealmDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
+		89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		89C83C162C7FAC0F00942BD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		89C83C182C7FAC6500942BD4 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		89C83C192C7FAC6500942BD4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -322,7 +326,7 @@
 		89C83BCA2C7F999A00942BD4 /* Data Sources */ = {
 			isa = PBXGroup;
 			children = (
-				89C83BFE2C7F9B2B00942BD4 /* Database */,
+				89C83BFE2C7F9B2B00942BD4 /* DB */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -384,6 +388,7 @@
 				89C83BE32C7F9A4A00942BD4 /* AppError.swift */,
 				89C83BE42C7F9A4A00942BD4 /* CityModel.swift */,
 				892FF68F2C7FB36C004FBBEA /* CoordModel.swift */,
+				899072562C80035F00BF43C2 /* WeatherModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 		89C83BE92C7F9A5A00942BD4 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				8990725A2C80117200BF43C2 /* CityRepository.swift */,
 				89C83BE82C7F9A5A00942BD4 /* WeatherRepository.swift */,
 			);
 			path = Repositories;
@@ -410,14 +416,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		89C83BFE2C7F9B2B00942BD4 /* Database */ = {
+		89C83BFE2C7F9B2B00942BD4 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				89C83BC82C7F999100942BD4 /* Database.swift */,
-				89C83BFB2C7F9B2600942BD4 /* RealmDatabase.swift */,
+				899072582C80077300BF43C2 /* DB.swift */,
+				89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */,
 				89C83BFA2C7F9B2600942BD4 /* MockDB.swift */,
 			);
-			path = Database;
+			path = DB;
 			sourceTree = "<group>";
 		};
 		89C83C052C7FA0BA00942BD4 /* Frameworks */ = {
@@ -608,16 +614,17 @@
 				89C83BF62C7F9A8900942BD4 /* HomeInteractor.swift in Sources */,
 				892FF69C2C7FB40A004FBBEA /* LandingPresenter.swift in Sources */,
 				892FF69D2C7FB40A004FBBEA /* LandingDataStore.swift in Sources */,
+				899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */,
 				892FF69E2C7FB40A004FBBEA /* LandingInteractor.swift in Sources */,
 				892FF69F2C7FB40A004FBBEA /* LandingView.swift in Sources */,
 				892FF6A02C7FB40A004FBBEA /* LandingModel.swift in Sources */,
 				892FF6A12C7FB40A004FBBEA /* LandingConfigurator.swift in Sources */,
 				89C83BF72C7F9A8900942BD4 /* HomeView.swift in Sources */,
-				89C83BFD2C7F9B2600942BD4 /* RealmDatabase.swift in Sources */,
+				89C83BFD2C7F9B2600942BD4 /* RealmDB.swift in Sources */,
+				8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */,
 				89C83BF82C7F9A8900942BD4 /* HomeModel.swift in Sources */,
 				89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */,
 				89C83BE02C7F9A3E00942BD4 /* PageControl.swift in Sources */,
-				89C83BC92C7F999100942BD4 /* Database.swift in Sources */,
 				892FF6AA2C7FB655004FBBEA /* ObjectAssociation.swift in Sources */,
 				89C83B962C7F98E300942BD4 /* AppView.swift in Sources */,
 				89C83BC52C7F995300942BD4 /* Route.swift in Sources */,
@@ -636,6 +643,7 @@
 				892FF6D02C7FF5CA004FBBEA /* DetailInteractor.swift in Sources */,
 				892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */,
 				892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */,
+				899072592C80077300BF43C2 /* DB.swift in Sources */,
 				892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */,
 				89C83BFC2C7F9B2600942BD4 /* MockDB.swift in Sources */,
 				89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */,

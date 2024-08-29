@@ -41,7 +41,6 @@ enum Home {
         struct Request {}
         
         struct Response {
-            var cities: [CityModel]
             var savedCities: [CityModel]
         }
     }
@@ -52,7 +51,6 @@ enum Home {
         }
         
         struct Response {
-            var savedCities: [CityModel]
             var cities: [CityModel]
         }
     }

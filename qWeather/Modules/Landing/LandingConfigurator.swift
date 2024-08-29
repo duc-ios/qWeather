@@ -13,7 +13,7 @@ extension LandingView {
     ) -> LandingView {
         var view = self
         let presenter = LandingPresenter(view: view)
-        let interactor = LandingInteractor(presenter: presenter, database: RealmDatabase())
+        let interactor = LandingInteractor(presenter: presenter, repository: CityRepositoryImp())
         view.interactor = interactor
         return view
     }
