@@ -25,7 +25,7 @@ struct HomeView: View, HomeDisplayLogic {
         Group {
             if store.isSearching {
                 if store.cities.isEmpty {
-                    Text(L10n.noData)
+                    Text(L10n.noDataEnterToSearchCity).multilineTextAlignment(.center)
                 } else {
                     List {
                         ForEach(store.cities) { city in
@@ -44,7 +44,7 @@ struct HomeView: View, HomeDisplayLogic {
                 }
             } else {
                 if store.savedCities.isEmpty {
-                    Text(L10n.noData)
+                    Text(L10n.noDataEnterToSearchCity).multilineTextAlignment(.center)
                 } else {
                     List {
                         ForEach(store.savedCities) { city in

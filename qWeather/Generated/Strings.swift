@@ -14,6 +14,8 @@ internal enum L10n {
   internal static let getStarted = L10n.tr("Localizable", "get_started", fallback: "Get Started!")
   /// No Data
   internal static let noData = L10n.tr("Localizable", "no_data", fallback: "No Data")
+  /// No Data. Enter a keyword to find your city.
+  internal static let noDataEnterToSearchCity = L10n.tr("Localizable", "no_data_enter_to_search_city", fallback: "No Data. Enter a keyword to find your city.")
   /// Not found!
   internal static let notFound = L10n.tr("Localizable", "not_found", fallback: "Not found!")
   /// OK
