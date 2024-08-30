@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+// MARK: - DetailBusinessLogic
+
 protocol DetailBusinessLogic {
     func showLoading(isLoading: Bool)
     func showError(request: Detail.ShowError.Request)
     func getCurrentWeather(request: Detail.GetCurrentWeather.Request)
 }
+
+// MARK: - DetailInteractor
 
 class DetailInteractor {
     init(presenter: DetailPresentationLogic, repository: WeatherRepository) {
@@ -23,6 +27,8 @@ class DetailInteractor {
     private let repository: WeatherRepository
 }
 
+// MARK: DetailBusinessLogic
+
 extension DetailInteractor: DetailBusinessLogic {
     func showLoading(isLoading: Bool) {
         presenter.presentIsLoading(isLoading: isLoading)
@@ -31,18 +37,21 @@ extension DetailInteractor: DetailBusinessLogic {
     func showError(request: Detail.ShowError.Request) {
         presenter.presentError(response: .init(error: .error(request.error)))
     }
-    
+
     func getCurrentWeather(request: Detail.GetCurrentWeather.Request) {
         guard let coord = request.city.coord else {
             return showError(request: .init(error: AppError.badRequest))
         }
-        Task { @MainActor in
+
+        let (lat, lon) = (coord.lat, coord.lon)
+        Task {
             do {
                 showLoading(isLoading: true)
-                let weather = try await repository.getCurrentWeather(lat: coord.lat, lon: coord.lon)
+                let weather = try await repository.getCurrentWeather(lat: lat, lon: lon)
                 showLoading(isLoading: false)
                 presenter.presentCurrentWeather(response: .init(weather: weather))
             } catch {
+                showLoading(isLoading: false)
                 showError(request: .init(error: error))
             }
         }

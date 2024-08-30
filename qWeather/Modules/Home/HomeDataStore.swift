@@ -11,7 +11,7 @@ import Foundation
 // MARK: - HomeDataStore
 
 final class HomeDataStore: BaseDataStore {
-    enum State: Equatable {
+    enum Event: Equatable {
         case loading(Bool),
              alert(title: String, message: String),
              error(AppError),
@@ -21,9 +21,9 @@ final class HomeDataStore: BaseDataStore {
              cities([CityModel])
     }
 
-    var cancellables = Set<AnyCancellable>()
+    @Published var event: Event?
 
-    @Published var state: State?
+    var cancellables = Set<AnyCancellable>()
 
     @Published var greeting = ""
     @Published var keyword = ""
@@ -37,8 +37,34 @@ final class HomeDataStore: BaseDataStore {
         $keyword
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .sink { [weak self] in
-                self?.state = .search($0)
+                self?.event = .search($0)
             }
             .store(in: &cancellables)
+
+        $event
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: reduce)
+            .store(in: &cancellables)
+    }
+
+    func reduce(_ state: HomeDataStore.Event?) {
+        switch state {
+        case .loading(let isLoading):
+            self.isLoading = isLoading
+        case .alert(let title, let message):
+            alertTitle = title
+            alertMessage = message
+            displayAlert = true
+        case .error(let error):
+            event = .alert(title: error.title, message: error.message)
+        case .greeting(let greeting):
+            self.greeting = greeting
+        case .savedCities(let cities):
+            savedCities = cities
+        case .cities(let cities):
+            self.cities = cities
+        default:
+            break
+        }
     }
 }

@@ -76,34 +76,13 @@ struct HomeView: View, HomeDisplayLogic {
         .onAppear {
             interactor.getGreeting(request: .init())
         }
-        .onChange(of: store.state, perform: handleState)
-    }
-
-    @MainActor
-    func handleState(_ state: HomeDataStore.State?) {
-        switch state {
-        case .loading(let isLoading):
-            store.isLoading = isLoading
-        case .alert(let title, let message):
-            store.alertTitle = title
-            store.alertMessage = message
-            store.displayAlert = true
-        case .error(let error):
-            store.state = .alert(title: error.title, message: error.message)
-        case .greeting(let greeting):
-            store.greeting = greeting
-        case .search(let keyword):
-            interactor.searchCities(request: .init(keyword: keyword))
-        case .savedCities(let cities):
-            withAnimation {
-                store.savedCities = cities
+        .onChange(of: store.event) {
+            switch $0 {
+            case .search(let keyword):
+                interactor.searchCities(request: .init(keyword: keyword))
+            default:
+                break
             }
-        case .cities(let cities):
-            withAnimation {
-                store.cities = cities
-            }
-        default:
-            break
         }
     }
 }

@@ -9,3 +9,11 @@
 "onboarding.desc.2" = "Keep your most-visited countries at your fingertips by marking them as favorites. Whether it’s for a planned trip or just curiosity, quickly access the weather in your favorite locations.";
 "onboarding.title.3" = "Get Accurate Weather Forecasts";
 "onboarding.desc.3" = "Stay informed with our reliable weather forecasts. From daily to weekly predictions, qWeather provides the details you need to plan your day or week ahead.";
+"detail.feels_like" = "Feels like %@";
+"detail.lh" = "L:%@ - H:\%@";
+"detail.sunrise" = "Sunrise: %@";
+"detail.sunset" = "Sunset: %@";
+"detail.wind" = "Wind: %@ %@";
+"detail.pressure" = "Pressure: %@";
+"detail.humidity" = "Humidity: %@";
+"detail.visibility" = "Visibility: %@";

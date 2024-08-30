@@ -5,8 +5,8 @@
 //  Created by Duc on 29/8/24.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 // MARK: - DetailDisplayLogic
 
@@ -23,38 +23,40 @@ struct DetailView: View, DetailDisplayLogic {
 
     var body: some View {
         VStack {
-            if let weather = store.weather {
-                KFImage(weather.weather.first?.icon)
+            if store.isLoading {
+                ProgressView().tint(.white).scaleEffect(.init(width: 2, height: 2))
+            } else {
+                KFImage(store.icon)
                     .placeholder { _ in ProgressView().tint(.white) }
                     .frame(width: 100, height: 100)
                 VStack {
                     Text(Date.now, format: .dateTime).font(.callout)
-                    Text(weather.name).font(.title)
-                    Text(weather.main.temp).font(.largeTitle.weight(.bold))
+                    Text(store.name).font(.title)
+                    Text(store.temp).font(.largeTitle.weight(.bold))
                 }
                 .foregroundColor(.gradientPurple)
                 .padding()
                 .background(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                Text("Feels like \(weather.main.feelsLike)")
+                Text(L10n.Detail.feelsLike(store.feelsLike))
                     .font(.body.weight(.medium))
-                Text(weather.weather.map { $0.description }.joined(separator: ". "))
-                Text("H:\(weather.main.tempMin) - L:\(weather.main.tempMax)")
+                Text(store.descriptions)
+                Text(store.lh)
                 VStack {
                     HStack {
-                        Text("Sunrise: \(weather.sys.sunrise.formatted(date: .omitted, time: .shortened))")
+                        Text(store.sunrise)
                         Spacer()
-                        Text("Sunset: \(weather.sys.sunset.formatted(date: .omitted, time: .shortened))")
+                        Text(store.sunset)
                     }
                     HStack {
-                        Text("\(weather.wind.speed) \(weather.wind.deg)")
+                        Text(store.wind)
                         Spacer()
-                        Text(weather.main.pressure)
+                        Text(store.pressure)
                     }
                     HStack {
-                        Text("Humidity: \(weather.main.humidity)")
+                        Text(store.humidity)
                         Spacer()
-                        Text("Visibility: \(weather.visibility)")
+                        Text(store.visibility)
                     }
                 }
                 .padding()
@@ -62,8 +64,6 @@ struct DetailView: View, DetailDisplayLogic {
                 .background(.white.opacity(0.8))
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .font(.footnote)
-            } else {
-                ProgressView().tint(.white).scaleEffect(.init(width: 2, height: 2))
             }
         }
         .foregroundStyle(.white)
@@ -74,7 +74,6 @@ struct DetailView: View, DetailDisplayLogic {
                isPresented: $store.displayAlert,
                actions: { Button(L10n.ok) {} },
                message: { Text(store.alertMessage) })
-        .onChange(of: store.state, perform: handleState)
         .onAppear {
             interactor.getCurrentWeather(request: .init(city: store.city))
         }
@@ -89,24 +88,9 @@ struct DetailView: View, DetailDisplayLogic {
                 })
             }
             ToolbarItem(placement: .principal) {
-                Text(store.weather?.name ?? store.city.name)
+                Text(store.name)
                     .foregroundColor(.white)
             }
-        }
-    }
-
-    func handleState(_ state: DetailDataStore.State?) {
-        switch state {
-        case .loading(let isLoading):
-            store.isLoading = isLoading
-        case .error(let error):
-            store.alertTitle = error.title
-            store.alertMessage = error.message
-            store.displayAlert = true
-        case .currentWeather(let weather):
-            store.weather = weather
-        default:
-            break
         }
     }
 }

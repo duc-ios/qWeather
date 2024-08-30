@@ -36,26 +36,18 @@ struct LandingView: View, LandingDisplayLogic {
                isPresented: $store.displayAlert,
                actions: { Button(L10n.ok) {} },
                message: { Text(store.alertMessage) })
-        .onChange(of: store.state, perform: handleState)
-    }
-
-    func handleState(_ state: LandingDataStore.State?) {
-        switch state {
-        case .loading(let isLoading):
-            store.isLoading = isLoading
-        case .error(let error):
-            store.alertTitle = error.title
-            store.alertMessage = error.message
-            store.displayAlert = true
-        case .homeOrOnboarding:
-            userSettings.isLoaded = true
-            if userSettings.isOnboarded {
-                router.pop(to: .home)
-            } else {
-                router.pop(to: .onboarding)
+        .onChange(of: store.event) {
+            switch $0 {
+            case .homeOrOnboarding:
+                userSettings.isLoaded = true
+                if userSettings.isOnboarded == true {
+                    router.pop(to: .home)
+                } else {
+                    router.pop(to: .onboarding)
+                }
+            default:
+                break
             }
-        default:
-            break
         }
     }
 }

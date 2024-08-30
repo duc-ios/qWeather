@@ -14,12 +14,47 @@ internal enum L10n {
   internal static let getStarted = L10n.tr("Localizable", "get_started", fallback: "Get Started!")
   /// No Data
   internal static let noData = L10n.tr("Localizable", "no_data", fallback: "No Data")
-  /// No Data. Enter a keyword to find your city.
-  internal static let noDataEnterToSearchCity = L10n.tr("Localizable", "no_data_enter_to_search_city", fallback: "No Data. Enter a keyword to find your city.")
+  /// No Data.
+  /// Enter a keyword to find your city.
+  internal static let noDataEnterToSearchCity = L10n.tr("Localizable", "no_data_enter_to_search_city", fallback: "No Data.\nEnter a keyword to find your city.")
   /// Not found!
   internal static let notFound = L10n.tr("Localizable", "not_found", fallback: "Not found!")
   /// OK
   internal static let ok = L10n.tr("Localizable", "ok", fallback: "OK")
+  internal enum Detail {
+    /// Feels like %@
+    internal static func feelsLike(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.feels_like", String(describing: p1), fallback: "Feels like %@")
+    }
+    /// Humidity: %@
+    internal static func humidity(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.humidity", String(describing: p1), fallback: "Humidity: %@")
+    }
+    /// L:%@ - H:%@
+    internal static func lh(_ p1: Any, _ p2: Any) -> String {
+      return L10n.tr("Localizable", "detail.lh", String(describing: p1), String(describing: p2), fallback: "L:%@ - H:%@")
+    }
+    /// Pressure: %@
+    internal static func pressure(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.pressure", String(describing: p1), fallback: "Pressure: %@")
+    }
+    /// Sunrise: %@
+    internal static func sunrise(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.sunrise", String(describing: p1), fallback: "Sunrise: %@")
+    }
+    /// Sunset: %@
+    internal static func sunset(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.sunset", String(describing: p1), fallback: "Sunset: %@")
+    }
+    /// Visibility: %@
+    internal static func visibility(_ p1: Any) -> String {
+      return L10n.tr("Localizable", "detail.visibility", String(describing: p1), fallback: "Visibility: %@")
+    }
+    /// Wind: %@ %@
+    internal static func wind(_ p1: Any, _ p2: Any) -> String {
+      return L10n.tr("Localizable", "detail.wind", String(describing: p1), String(describing: p2), fallback: "Wind: %@ %@")
+    }
+  }
   internal enum Onboarding {
     internal enum Desc {
       /// Want to know the weather in a specific country? Just use our search feature to find any country instantly. Start typing the name, and we’ll help you find it.
