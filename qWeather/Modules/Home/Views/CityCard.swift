@@ -19,9 +19,9 @@ struct CityCard: View {
                 Spacer()
                 Button(action: saveAction) {
                     if city.isSaved == true {
-                        Image(systemName: "heart.fill").foregroundStyle(.red)
+                        Image(systemName: "star.fill").foregroundStyle(.yellow)
                     } else {
-                        Image(systemName: "heart")
+                        Image(systemName: "star")
                     }
                 }
             }

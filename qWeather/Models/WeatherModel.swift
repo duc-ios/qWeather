@@ -12,22 +12,12 @@ import Foundation
 struct WeatherModel: Codable, Equatable {
     let coord: Coord
     let weather: [Weather]
-    let base: String
     let main: Main
     @Kilometter var visibility: String
     let wind: Wind
-    let clouds: Clouds
-    let dt: Int
+    @DateTime var dt: Date
     let sys: Sys
-    let timezone, id: Int
     let name: String
-    let cod: Int
-}
-
-// MARK: - Clouds
-
-struct Clouds: Codable, Equatable {
-    let all: Int
 }
 
 // MARK: - Coord
@@ -50,7 +40,6 @@ struct Main: Codable, Equatable {
 // MARK: - Sys
 
 struct Sys: Codable, Equatable {
-    let type, id: Int
     let country: String
     @DateTime var sunrise: Date
     @DateTime var sunset: Date
@@ -59,7 +48,6 @@ struct Sys: Codable, Equatable {
 // MARK: - Weather
 
 struct Weather: Codable, Equatable {
-    let id: Int
     let main, description: String
     @WeatherIcon var icon: URL?
 }
@@ -67,7 +55,7 @@ struct Weather: Codable, Equatable {
 // MARK: - Wind
 
 struct Wind: Codable, Equatable {
-    let speed: Double
+    @Speed var speed: String
     @Compass var deg: String
 }
 

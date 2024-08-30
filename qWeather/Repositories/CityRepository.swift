@@ -14,16 +14,16 @@ protocol CityRepository {
     func create(_ items: CityModel...) throws
     func create(_ items: [CityModel]) throws
     func read(primaryKey: Any) throws -> CityModel?
-    func read(_ predicate: String) throws -> [CityModel]
+    func read(_ predicate: String?, sorts: [(keyPath: String, asc: Bool)]) throws -> [CityModel]
     func update(_ handler: VoidCallback) throws
     func delete(_ items: CityModel...) throws
     func delete(_ items: [CityModel]) throws
-    func observe(_ predicate: String, handler: @escaping ValueCallback<Result<[CityModel], AppError>>) throws
+    func observe(_ predicate: String?, sorts: [(keyPath: String, asc: Bool)], handler: @escaping ValueCallback<Result<[CityModel], AppError>>) throws
 }
 
 // MARK: - CityRepositoryImp
 
-class CityRepositoryImp: CityRepository {
+final class CityRepositoryImp: CityRepository {
     private let db: RealmDB
 
     var tokens = Set<NotificationToken>()
@@ -47,9 +47,9 @@ class CityRepositoryImp: CityRepository {
     func read(primaryKey: Any) throws -> CityModel? {
         try db.read(primaryKey: primaryKey)
     }
-    
-    func read(_ predicate: String) throws -> [CityModel] {
-        try db.read(predicate)
+
+    func read(_ predicate: String? = nil, sorts: [(keyPath: String, asc: Bool)]) throws -> [CityModel] {
+        try db.read(predicate, sorts: sorts.map { RealmSwift.SortDescriptor(keyPath: $0.keyPath, ascending: $0.asc) })
     }
 
     func update(_ handler: VoidCallback) throws {
@@ -64,16 +64,7 @@ class CityRepositoryImp: CityRepository {
         try db.delete(items)
     }
 
-    func observe(_ predicate: String, handler: @escaping ValueCallback<Result<[CityModel], AppError>>) throws {
-        try tokens.insert(db.observe(CityModel.self, predicate, handler: {
-            switch $0 {
-            case .initial(let results):
-                handler(.success(Array(results)))
-            case .update(let results, deletions: _, insertions: _, modifications: _):
-                handler(.success(Array(results)))
-            case .error(let error):
-                handler(.failure(AppError.error(error)))
-            }
-        }))
+    func observe(_ predicate: String?, sorts: [(keyPath: String, asc: Bool)], handler: @escaping ValueCallback<Result<[CityModel], AppError>>) throws {
+        try tokens.insert(db.observe(predicate, sorts: sorts.map { RealmSwift.SortDescriptor(keyPath: $0.keyPath, ascending: $0.asc) }, handler: handler))
     }
 }

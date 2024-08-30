@@ -11,3 +11,7 @@ typealias VoidCallback = () -> Void
 typealias ValueCallback<T> = (T) -> Void
 
 let logger = Logger()
+
+enum Constants {
+    static let limit = 10
+}

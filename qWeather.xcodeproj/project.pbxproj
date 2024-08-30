@@ -27,7 +27,6 @@
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
 		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
-		899072592C80077300BF43C2 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072582C80077300BF43C2 /* DB.swift */; };
 		8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725A2C80117200BF43C2 /* CityRepository.swift */; };
 		8990725E2C801CA300BF43C2 /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725D2C801CA300BF43C2 /* Configs.swift */; };
 		899072612C801ECC00BF43C2 /* Moya+Concurency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072602C801ECC00BF43C2 /* Moya+Concurency.swift */; };
@@ -63,7 +62,6 @@
 		89C83BF72C7F9A8900942BD4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF12C7F9A8900942BD4 /* HomeView.swift */; };
 		89C83BF82C7F9A8900942BD4 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF22C7F9A8900942BD4 /* HomeModel.swift */; };
 		89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */; };
-		89C83BFC2C7F9B2600942BD4 /* MockDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFA2C7F9B2600942BD4 /* MockDB.swift */; };
 		89C83BFD2C7F9B2600942BD4 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */; };
 		89C83C092C7FA1C000942BD4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 89C83C082C7FA1C000942BD4 /* Moya */; };
 		89C83C172C7FAC0F00942BD4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89C83C152C7FAC0F00942BD4 /* Localizable.strings */; };
@@ -124,7 +122,6 @@
 		892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
 		899072562C80035F00BF43C2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
-		899072582C80077300BF43C2 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		8990725A2C80117200BF43C2 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 		8990725D2C801CA300BF43C2 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		899072602C801ECC00BF43C2 /* Moya+Concurency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Moya+Concurency.swift"; sourceTree = "<group>"; };
@@ -163,7 +160,6 @@
 		89C83BF12C7F9A8900942BD4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89C83BF22C7F9A8900942BD4 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
-		89C83BFA2C7F9B2600942BD4 /* MockDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockDB.swift; sourceTree = "<group>"; };
 		89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		89C83C162C7FAC0F00942BD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		89C83C182C7FAC6500942BD4 /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
@@ -457,9 +453,7 @@
 		89C83BFE2C7F9B2B00942BD4 /* DB */ = {
 			isa = PBXGroup;
 			children = (
-				899072582C80077300BF43C2 /* DB.swift */,
 				89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */,
-				89C83BFA2C7F9B2600942BD4 /* MockDB.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -686,9 +680,7 @@
 				892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */,
 				899072632C80233B00BF43C2 /* Num+Extensions.swift in Sources */,
 				892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */,
-				899072592C80077300BF43C2 /* DB.swift in Sources */,
 				892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */,
-				89C83BFC2C7F9B2600942BD4 /* MockDB.swift in Sources */,
 				8990725E2C801CA300BF43C2 /* Configs.swift in Sources */,
 				89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */,
 				89C83C202C7FB04A00942BD4 /* Searchable_iOS16.swift in Sources */,

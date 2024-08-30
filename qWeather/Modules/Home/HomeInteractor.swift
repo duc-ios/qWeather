@@ -28,7 +28,7 @@ class HomeInteractor {
         self.repository = repository
 
         do {
-            try repository.observe("isSaved = true") { [weak self] in
+            try repository.observe("isSaved = true", sorts: [("country", true), ("name", true)]) { [weak self] in
                 guard let self else { return }
                 switch $0 {
                 case .success(let cities):
@@ -72,7 +72,7 @@ extension HomeInteractor: HomeBusinessLogic {
 
     func getSavedCities(request: Home.GetSavedCities.Request) {
         do {
-            savedCities = try repository.read("isSaved = true")
+            savedCities = try repository.read("isSaved = true ORDED by ", sorts: [("country", true), ("name", true)])
             presenter.presentCities(response: .init(cities: cities))
         } catch {
             showError(request: .init(error: error))
@@ -85,7 +85,7 @@ extension HomeInteractor: HomeBusinessLogic {
             presenter.presentCities(response: .init(cities: cities))
         } else {
             do {
-                cities = try repository.read(String(format: "name CONTAINS[c] '%@'", request.keyword))
+                cities = try repository.read(String(format: "name CONTAINS[c] '%@'", request.keyword), sorts: [("country", true), ("name", true)])
                 presenter.presentCities(response: .init(cities: cities))
             } catch {
                 showError(request: .init(error: error))
