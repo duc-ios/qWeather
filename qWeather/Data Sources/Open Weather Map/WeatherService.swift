@@ -35,7 +35,11 @@ extension WeatherService: TargetType {
     var task: Task {
         switch self {
         case .weather(let lat, let lon):
-            return .requestParameters(parameters: ["lat": lat, "lon": lon, "appid": Configs.appId], encoding: URLEncoding.queryString)
+            return .requestParameters(parameters: [
+                "lat": lat,
+                "lon": lon,
+                "appid": Configs.appId,
+            ], encoding: URLEncoding.queryString)
         }
     }
 
