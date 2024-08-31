@@ -10,25 +10,25 @@ import Foundation
 // MARK: - WeatherModel
 
 struct WeatherModel: Codable, Equatable {
-    let coord: Coord
-    let weather: [Weather]
-    let main: Main
+    let coord: CoordModel
+    let weather: [WeatherDetailModel]
+    let main: MainModel
     @Kilometter var visibility: String
-    let wind: Wind
+    let wind: WindModel
     @DateTime var dt: Date
-    let sys: Sys
+    let sys: SysModel
     let name: String
 }
 
-// MARK: - Coord
+// MARK: - CoordModel
 
-struct Coord: Codable, Equatable {
+struct CoordModel: Codable, Equatable {
     let lon, lat: Double
 }
 
-// MARK: - Main
+// MARK: - MainModel
 
-struct Main: Codable, Equatable {
+struct MainModel: Codable, Equatable {
     @Celcius var temp: String
     @Celcius var feelsLike: String
     @Celcius var tempMin: String
@@ -37,24 +37,24 @@ struct Main: Codable, Equatable {
     @Pressure var pressure: String
 }
 
-// MARK: - Sys
+// MARK: - SysModel
 
-struct Sys: Codable, Equatable {
+struct SysModel: Codable, Equatable {
     let country: String
     @DateTime var sunrise: Date
     @DateTime var sunset: Date
 }
 
-// MARK: - Weather
+// MARK: - WeatherDetailModel
 
-struct Weather: Codable, Equatable {
+struct WeatherDetailModel: Codable, Equatable {
     let main, description: String
     @WeatherIcon var icon: URL?
 }
 
-// MARK: - Wind
+// MARK: - WindModel
 
-struct Wind: Codable, Equatable {
+struct WindModel: Codable, Equatable {
     @Speed var speed: String
     @Compass var deg: String
 }

@@ -36,7 +36,7 @@ extension LandingInteractor: LandingBusinessLogic {
         showLoading(isLoading: true)
         let error = AppError.message("Cannot parse cities json")
         do {
-            if let _: CityModel = try repository.read(primaryKey: 833) {
+            if let _: CityModel = try repository.read(primaryKey: 15) {
                 showLoading(isLoading: false)
                 presenter.presentHomeOrOnBoarding(response: .init())
             } else {
@@ -49,7 +49,7 @@ extension LandingInteractor: LandingBusinessLogic {
                         presenter.presentHomeOrOnBoarding(response: .init())
                     }
                 } else {
-                    presenter.presentError(response: .init(error: error))
+                    showError(request: .init(error: error))
                 }
             }
         } catch {

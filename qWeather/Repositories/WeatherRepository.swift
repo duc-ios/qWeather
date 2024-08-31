@@ -17,7 +17,7 @@ protocol WeatherRepository {
 // MARK: - WeatherRepositoryImp
 
 final class WeatherRepositoryImp: WeatherRepository {
-    let provider = MoyaProvider<WeatherService>(plugins: [VerbosePlugin(verbose: true)])
+    private let provider = MoyaProvider<OpenWeatherMapService>(plugins: [VerbosePlugin(verbose: true)])
 
     func getCurrentWeather(lat: Double, lon: Double) async throws -> WeatherModel {
         let weather: WeatherModel = try await provider.async.request(.weather(lat: lat, lon: lon))

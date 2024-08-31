@@ -101,8 +101,9 @@ struct DetailView: View, DetailDisplayLogic {
         DetailView()
             .configured(city: .init(
                 name: "Ho Chi Minh",
-                coord: CoordModel(lon: 106.6667, lat: 10.75))
-            )
+                lat: 10.75,
+                lon: 106.6667
+            ))
             .environmentObject(Router())
     }
 }

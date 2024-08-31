@@ -47,8 +47,8 @@ final class HomeDataStore: BaseDataStore {
             .store(in: &cancellables)
     }
 
-    func reduce(_ state: HomeDataStore.Event?) {
-        switch state {
+    func reduce(_ event: Event?) {
+        switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading
         case .alert(let title, let message):
@@ -56,7 +56,7 @@ final class HomeDataStore: BaseDataStore {
             alertMessage = message
             displayAlert = true
         case .error(let error):
-            event = .alert(title: error.title, message: error.message)
+            self.event = .alert(title: error.title, message: error.message)
         case .greeting(let greeting):
             self.greeting = greeting
         case .savedCities(let cities):

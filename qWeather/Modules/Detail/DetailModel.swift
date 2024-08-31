@@ -19,6 +19,16 @@ enum Detail {
         }
     }
     
+    enum ShowAlert {
+        struct Request {
+            var message: String
+        }
+        
+        struct Response {
+            var message: String
+        }
+    }
+    
     enum GetCurrentWeather {
         struct Request {
             var city: CityModel

@@ -12,6 +12,7 @@ final class DetailDataStore: BaseDataStore {
     private var cancellables = Set<AnyCancellable>()
     enum Event: Equatable {
         case loading(Bool),
+             alert(title: String, message: String),
              error(AppError),
              currentWeather(WeatherModel)
     }
@@ -46,10 +47,12 @@ final class DetailDataStore: BaseDataStore {
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading
-        case .error(let error):
-            alertTitle = error.title
-            alertMessage = error.message
+        case .alert(let title, let message):
+            alertTitle = title
+            alertMessage = message
             displayAlert = true
+        case .error(let error):
+            self.event = .alert(title: error.title, message: error.message)
         case .currentWeather(let weather):
             icon = weather.weather.first?.icon
             name = weather.name

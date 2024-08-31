@@ -39,11 +39,7 @@ extension DetailInteractor: DetailBusinessLogic {
     }
 
     func getCurrentWeather(request: Detail.GetCurrentWeather.Request) {
-        guard let coord = request.city.coord else {
-            return showError(request: .init(error: AppError.badRequest))
-        }
-
-        let (lat, lon) = (coord.lat, coord.lon)
+        let (lat, lon) = (request.city.lat, request.city.lon)
         Task {
             do {
                 showLoading(isLoading: true)
