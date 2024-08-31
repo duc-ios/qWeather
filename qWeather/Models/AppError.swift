@@ -27,22 +27,22 @@ enum AppError: LocalizedError, Equatable {
     var title: String {
         switch self {
         case .network:
-            return "No network"
+            return L10n.Error.noNetwork
         default:
-            return "Something went wrong"
+            return L10n.Error.somethingWentWrong
         }
     }
 
     var message: String {
         switch self {
         case .unimplemented:
-            return "Unimplemented Error"
+            return L10n.Error.unimplemented
         case .unexpected:
-            return "Unexpected Error"
+            return L10n.Error.unexpected
         case .badRequest:
-            return "Bad Request"
+            return L10n.Error.badRequest
         case .network:
-            return "Please try again later."
+            return L10n.Error.tryAgain
         case .error(let error):
             if let error = error as? AppError {
                 return error.message

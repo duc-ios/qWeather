@@ -72,7 +72,7 @@ extension HomeInteractor: HomeBusinessLogic {
 
     func getSavedCities(request: Home.GetSavedCities.Request) {
         do {
-            savedCities = try repository.read("isSaved = true ORDED by ", sorts: [("country", true), ("name", true)])
+            savedCities = try repository.read("isSaved = true", sorts: [("country", true), ("name", true)])
             presenter.presentCities(response: .init(cities: cities))
         } catch {
             showError(request: .init(error: error))

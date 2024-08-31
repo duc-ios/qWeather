@@ -69,7 +69,7 @@ struct OnboardingView: View {
                 userSettings.isOnboarded = true
                 router.pop(to: .home)
             }, label: {
-                Text(L10n.getStarted)
+                Text(L10n.Onboarding.getStarted)
             })
             .padding()
             .font(.title3.weight(.semibold))

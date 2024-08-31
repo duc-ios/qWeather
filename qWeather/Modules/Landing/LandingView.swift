@@ -23,8 +23,8 @@ struct LandingView: View, LandingDisplayLogic {
 
     var body: some View {
         VStack {
-            Image("launch-screen-ic")
-            Text("Loading cities, please wait ...")
+            Asset.launchScreenIc.swiftUIImage
+            Text(L10n.Landing.loading)
             ProgressView()
         }
         .offset(y: 1.5)

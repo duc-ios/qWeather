@@ -10,8 +10,6 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
-  /// Get Started!
-  internal static let getStarted = L10n.tr("Localizable", "get_started", fallback: "Get Started!")
   /// No Data
   internal static let noData = L10n.tr("Localizable", "no_data", fallback: "No Data")
   /// No Data.
@@ -55,7 +53,27 @@ internal enum L10n {
       return L10n.tr("Localizable", "detail.wind", String(describing: p1), String(describing: p2), fallback: "Wind: %@ %@")
     }
   }
+  internal enum Error {
+    /// Bad Request
+    internal static let badRequest = L10n.tr("Localizable", "error.bad_request", fallback: "Bad Request")
+    /// No network
+    internal static let noNetwork = L10n.tr("Localizable", "error.no_network", fallback: "No network")
+    /// Something went wrong
+    internal static let somethingWentWrong = L10n.tr("Localizable", "error.something_went_wrong", fallback: "Something went wrong")
+    /// Please try again later.
+    internal static let tryAgain = L10n.tr("Localizable", "error.try_again", fallback: "Please try again later.")
+    /// Unexpected Error
+    internal static let unexpected = L10n.tr("Localizable", "error.unexpected", fallback: "Unexpected Error")
+    /// Unimplemented
+    internal static let unimplemented = L10n.tr("Localizable", "error.unimplemented", fallback: "Unimplemented")
+  }
+  internal enum Landing {
+    /// Loading cities, please wait ...
+    internal static let loading = L10n.tr("Localizable", "landing.loading", fallback: "Loading cities, please wait ...")
+  }
   internal enum Onboarding {
+    /// Get Started!
+    internal static let getStarted = L10n.tr("Localizable", "onboarding.get_started", fallback: "Get Started!")
     internal enum Desc {
       /// Want to know the weather in a specific country? Just use our search feature to find any country instantly. Start typing the name, and we’ll help you find it.
       internal static let _1 = L10n.tr("Localizable", "onboarding.desc.1", fallback: "Want to know the weather in a specific country? Just use our search feature to find any country instantly. Start typing the name, and we’ll help you find it.")
