@@ -36,6 +36,8 @@ final class HomeInteractorTests: XCTestCase {
         presenter = nil
         repository = nil
         
+        UIView.setAnimationsEnabled(true)
+
         super.tearDown()
     }
     
@@ -96,6 +98,8 @@ final class HomePresenterMock: HomePresentationLogic {
         presentCitiesCalled = true
     }
 }
+
+// MARK: - CityRepositoryMock
 
 final class CityRepositoryMock: CityRepository {
     func create(_ items: qWeather.CityModel...) throws {

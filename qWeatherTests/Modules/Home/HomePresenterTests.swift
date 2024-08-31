@@ -27,7 +27,9 @@ final class HomePresenterTests: XCTestCase {
     
     override func tearDown() {
         sut = nil
-        
+
+        UIView.setAnimationsEnabled(true)
+
         super.tearDown()
     }
     

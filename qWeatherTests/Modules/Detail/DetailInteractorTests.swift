@@ -16,29 +16,31 @@ final class DetailInteractorTests: XCTestCase {
     private var sut: DetailBusinessLogic!
     private var presenter: DetailPresenterMock!
     private var repository: WeatherRepository!
-    
+
     @MainActor override func setUp() {
         super.setUp()
-        
+
         UIView.setAnimationsEnabled(false)
-        
+
         presenter = DetailPresenterMock()
         repository = WeatherRepositoryMock()
-        
+
         sut = DetailInteractor(
             presenter: presenter,
             repository: repository
         )
     }
-    
+
     override func tearDown() {
         sut = nil
         presenter = nil
         repository = nil
-        
+
+        UIView.setAnimationsEnabled(true)
+
         super.tearDown()
     }
-    
+
     func testGetCurrentWeather() {
         // Given
         let request = Detail.GetCurrentWeather.Request(city: .init(lat: 10.75, lon: 106.6667))
@@ -65,19 +67,19 @@ final class DetailPresenterMock: DetailPresentationLogic {
     var presentAlertCalled = false
     var presentErrorCalled = false
     var presentCurrentWeatherCalled = false
-    
+
     func presentIsLoading(isLoading: Bool) {
         self.isLoading = isLoading
     }
-    
+
     func presentAlert(response: Detail.ShowAlert.Response) {
         presentAlertCalled = true
     }
-    
+
     func presentError(response: Detail.ShowError.Response) {
         presentErrorCalled = true
     }
-    
+
     func presentCurrentWeather(response: Detail.GetCurrentWeather.Response) {
         presentCurrentWeatherCalled = true
     }
