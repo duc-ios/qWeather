@@ -7,6 +7,7 @@
 
 import Moya
 import Foundation
+import SwiftyJSON
 
 // MARK: - VerbosePlugin
 
@@ -30,8 +31,8 @@ struct VerbosePlugin: PluginType {
         case .success(let body):
             if verbose {
                 logger.debug("RESPONSE:")
-                if let json = try? JSONSerialization.jsonObject(with: body.data, options: .mutableContainers) {
-                    debugPrint(json)
+                if let json = JSON(body.data).rawString() {
+                    logger.debug("\(json)")
                 } else {
                     let response = String(data: body.data, encoding: .utf8)!
                     logger.debug("\(response)")
