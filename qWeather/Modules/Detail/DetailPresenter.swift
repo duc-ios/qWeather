@@ -9,7 +9,7 @@ import UIKit
 
 protocol DetailPresentationLogic {
     func presentIsLoading(isLoading: Bool)
-    func presentAlert(response: Home.ShowAlert.Response)
+    func presentAlert(response: Detail.ShowAlert.Response)
     func presentError(response: Detail.ShowError.Response)
     func presentCurrentWeather(response: Detail.GetCurrentWeather.Response)
 }
@@ -27,7 +27,7 @@ extension DetailPresenter: DetailPresentationLogic {
         view.store.event = .loading(isLoading)
     }
     
-    func presentAlert(response: Home.ShowAlert.Response) {
+    func presentAlert(response: Detail.ShowAlert.Response) {
         view.store.event = .alert(title: response.message, message: "")
     }
 

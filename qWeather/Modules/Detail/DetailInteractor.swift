@@ -39,10 +39,10 @@ extension DetailInteractor: DetailBusinessLogic {
     }
 
     func getCurrentWeather(request: Detail.GetCurrentWeather.Request) {
+        showLoading(isLoading: true)
         let (lat, lon) = (request.city.lat, request.city.lon)
         Task {
             do {
-                showLoading(isLoading: true)
                 let weather = try await repository.getCurrentWeather(lat: lat, lon: lon)
                 showLoading(isLoading: false)
                 presenter.presentCurrentWeather(response: .init(weather: weather))

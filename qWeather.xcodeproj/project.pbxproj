@@ -32,6 +32,12 @@
 		899072662C80386400BF43C2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 899072652C80386400BF43C2 /* Kingfisher */; };
 		899072692C803E1400BF43C2 /* OpenWeatherMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072682C803E1400BF43C2 /* OpenWeatherMapService.swift */; };
 		8990726B2C83865500BF43C2 /* VerbosePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990726A2C83865500BF43C2 /* VerbosePlugin.swift */; };
+		8990726E2C838B6400BF43C2 /* WeatherRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990726D2C838B6400BF43C2 /* WeatherRepositoryTests.swift */; };
+		899072702C83904C00BF43C2 /* CityRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990726F2C83904C00BF43C2 /* CityRepositoryTests.swift */; };
+		899072752C83A00700BF43C2 /* HomeInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072742C83A00700BF43C2 /* HomeInteractorTests.swift */; };
+		899072772C83A2BC00BF43C2 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072762C83A2BC00BF43C2 /* HomePresenterTests.swift */; };
+		899072792C83A54D00BF43C2 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072782C83A54D00BF43C2 /* DetailInteractorTests.swift */; };
+		8990727B2C83A55500BF43C2 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990727A2C83A55500BF43C2 /* DetailPresenterTests.swift */; };
 		89C83B942C7F98E300942BD4 /* qWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B932C7F98E300942BD4 /* qWeatherApp.swift */; };
 		89C83B962C7F98E300942BD4 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B952C7F98E300942BD4 /* AppView.swift */; };
 		89C83B982C7F98E400942BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B972C7F98E400942BD4 /* Assets.xcassets */; };
@@ -124,6 +130,12 @@
 		899072622C80233B00BF43C2 /* Num+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Num+Extensions.swift"; sourceTree = "<group>"; };
 		899072682C803E1400BF43C2 /* OpenWeatherMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherMapService.swift; sourceTree = "<group>"; };
 		8990726A2C83865500BF43C2 /* VerbosePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbosePlugin.swift; sourceTree = "<group>"; };
+		8990726D2C838B6400BF43C2 /* WeatherRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepositoryTests.swift; sourceTree = "<group>"; };
+		8990726F2C83904C00BF43C2 /* CityRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepositoryTests.swift; sourceTree = "<group>"; };
+		899072742C83A00700BF43C2 /* HomeInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractorTests.swift; sourceTree = "<group>"; };
+		899072762C83A2BC00BF43C2 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		899072782C83A54D00BF43C2 /* DetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractorTests.swift; sourceTree = "<group>"; };
+		8990727A2C83A55500BF43C2 /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		89C83B902C7F98E300942BD4 /* qWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C83B932C7F98E300942BD4 /* qWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherApp.swift; sourceTree = "<group>"; };
 		89C83B952C7F98E300942BD4 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -235,6 +247,42 @@
 			path = "Open Weather Map";
 			sourceTree = "<group>";
 		};
+		8990726C2C838B3600BF43C2 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8990726F2C83904C00BF43C2 /* CityRepositoryTests.swift */,
+				8990726D2C838B6400BF43C2 /* WeatherRepositoryTests.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		899072712C839FC400BF43C2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				899072722C839FCB00BF43C2 /* Home */,
+				899072732C839FD100BF43C2 /* Detail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		899072722C839FCB00BF43C2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				899072742C83A00700BF43C2 /* HomeInteractorTests.swift */,
+				899072762C83A2BC00BF43C2 /* HomePresenterTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		899072732C839FD100BF43C2 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				899072782C83A54D00BF43C2 /* DetailInteractorTests.swift */,
+				8990727A2C83A55500BF43C2 /* DetailPresenterTests.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		89C83B872C7F98E300942BD4 = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +336,8 @@
 			isa = PBXGroup;
 			children = (
 				89C83BA42C7F98E400942BD4 /* qWeatherTests.swift */,
+				899072712C839FC400BF43C2 /* Modules */,
+				8990726C2C838B3600BF43C2 /* Repositories */,
 				89C83C212C7FB05600942BD4 /* Utils */,
 			);
 			path = qWeatherTests;
@@ -669,8 +719,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				899072702C83904C00BF43C2 /* CityRepositoryTests.swift in Sources */,
+				899072792C83A54D00BF43C2 /* DetailInteractorTests.swift in Sources */,
+				8990726E2C838B6400BF43C2 /* WeatherRepositoryTests.swift in Sources */,
+				8990727B2C83A55500BF43C2 /* DetailPresenterTests.swift in Sources */,
+				899072752C83A00700BF43C2 /* HomeInteractorTests.swift in Sources */,
 				89C83C222C7FB06400942BD4 /* GreetingTests.swift in Sources */,
 				89C83BA52C7F98E400942BD4 /* qWeatherTests.swift in Sources */,
+				899072772C83A2BC00BF43C2 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

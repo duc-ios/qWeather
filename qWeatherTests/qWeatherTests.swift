@@ -5,11 +5,10 @@
 //  Created by Duc on 29/8/24.
 //
 
-import XCTest
 @testable import qWeather
+import XCTest
 
 final class qWeatherTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -32,5 +31,4 @@ final class qWeatherTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
