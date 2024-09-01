@@ -37,16 +37,15 @@ struct LandingView: View, LandingDisplayLogic {
                actions: { Button(L10n.ok) {} },
                message: { Text(store.alertMessage) })
         .onChange(of: store.event) {
-            switch $0 {
-            case .homeOrOnboarding:
-                userSettings.isLoaded = true
-                if userSettings.isOnboarded == true {
-                    router.pop(to: .home)
-                } else {
-                    router.pop(to: .onboarding)
-                }
-            default:
-                break
+            guard case .router(let event) = $0 else { return }
+            switch event {
+                case .homeOrOnboarding:
+                    userSettings.isLoaded = true
+                    if userSettings.isOnboarded == true {
+                        router.pop(to: .home)
+                    } else {
+                        router.pop(to: .onboarding)
+                    }
             }
         }
     }

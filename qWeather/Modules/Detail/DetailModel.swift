@@ -21,10 +21,12 @@ enum Detail {
     
     enum ShowAlert {
         struct Request {
+            var title: String
             var message: String
         }
         
         struct Response {
+            var title: String
             var message: String
         }
     }

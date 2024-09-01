@@ -43,13 +43,15 @@ final class HomeInteractorTests: XCTestCase {
     
     func testGetGreeting() {
         // Given
-        let request = Home.GetGreeting.Request()
+        let dateComponents = DateComponents(hour: 12)
+        let date = Calendar.current.date(from: dateComponents)
+        let request = Home.GetGreeting.Request(date: date!)
         
         // When
         sut.getGreeting(request: request)
         
         // Then
-        XCTAssert(presenter.presentGreetingCalled)
+        XCTAssertEqual(presenter.greeting, "Good Afternoon!")
     }
     
     func testSearchCities() {
@@ -70,7 +72,7 @@ final class HomePresenterMock: HomePresentationLogic {
     var isLoading = false
     var presentAlertCalled = false
     var presentErrorCalled = false
-    var presentGreetingCalled = false
+    var greeting = ""
     var presentSavedCitiesCalled = false
     var presentCitiesCalled = false
     
@@ -87,7 +89,7 @@ final class HomePresenterMock: HomePresentationLogic {
     }
     
     func presentGreeting(response: Home.GetGreeting.Response) {
-        presentGreetingCalled = true
+        greeting = response.greeting
     }
     
     func presentSavedCities(response: Home.GetSavedCities.Response) {

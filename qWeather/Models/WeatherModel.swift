@@ -24,6 +24,11 @@ struct WeatherModel: Codable, Equatable {
 
 struct CoordModel: Codable, Equatable {
     let lon, lat: Double
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        String(format: "%.2f", lhs.lon) == String(format: "%.2f", rhs.lon)
+        && String(format: "%.2f", lhs.lat) == String(format: "%.2f", rhs.lat)
+    }
 }
 
 // MARK: - MainModel

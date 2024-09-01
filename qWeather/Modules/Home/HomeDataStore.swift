@@ -12,13 +12,16 @@ import Foundation
 
 final class HomeDataStore: BaseDataStore {
     enum Event: Equatable {
-        case loading(Bool),
-             alert(title: String, message: String),
-             error(AppError),
-             greeting(String),
-             search(String),
-             savedCities([CityModel]),
-             cities([CityModel])
+        enum View: Equatable {
+            case loading(Bool),
+                 alert(title: String, message: String),
+                 error(AppError),
+                 greeting(String),
+                 savedCities([CityModel]),
+                 cities([CityModel])
+        }
+        
+        case view(View)
     }
 
     @Published var event: Event?
@@ -26,20 +29,12 @@ final class HomeDataStore: BaseDataStore {
     var cancellables = Set<AnyCancellable>()
 
     @Published var greeting = ""
-    @Published var keyword = ""
     @Published var isSearching = false
     @Published var savedCities = [CityModel]()
     @Published var cities = [CityModel]()
 
     override init() {
         super.init()
-
-        $keyword
-            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
-            .sink { [weak self] in
-                self?.event = .search($0)
-            }
-            .store(in: &cancellables)
 
         $event
             .receive(on: DispatchQueue.main)
@@ -48,6 +43,7 @@ final class HomeDataStore: BaseDataStore {
     }
 
     func reduce(_ event: Event?) {
+        guard case .view(let event) = event else { return }
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading
@@ -56,15 +52,13 @@ final class HomeDataStore: BaseDataStore {
             alertMessage = message
             displayAlert = true
         case .error(let error):
-            self.event = .alert(title: error.title, message: error.message)
+            self.event = .view(.alert(title: error.title, message: error.message))
         case .greeting(let greeting):
             self.greeting = greeting
         case .savedCities(let cities):
             savedCities = cities
         case .cities(let cities):
             self.cities = cities
-        default:
-            break
         }
     }
 }

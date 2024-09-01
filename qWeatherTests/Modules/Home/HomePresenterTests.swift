@@ -66,14 +66,16 @@ final class HomeViewMock: HomeDisplayLogic {
     
     init() {
         store.$event.sink { [weak self] in
-            guard let self else { return }
-            switch $0 {
+            guard let self, case .view(let event) = $0 else { return }
+            switch event {
             case .greeting(let greeting):
                 store.greeting = greeting
-            case .error(let error):
-                store.alertTitle = error.title
-                store.alertMessage = error.message
+            case .alert(let title, let message):
+                store.alertTitle = title
+                store.alertMessage = message
                 store.displayAlert = true
+            case .error(let error):
+                store.event = .view(.alert(title: error.title, message: error.message))
             default:
                 break
             }

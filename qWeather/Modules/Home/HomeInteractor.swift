@@ -59,7 +59,7 @@ extension HomeInteractor: HomeBusinessLogic {
     }
 
     func showAlert(request: Home.ShowAlert.Request) {
-        presenter.presentAlert(response: .init(message: request.message))
+        presenter.presentAlert(response: .init(title: request.title, message: request.message))
     }
 
     func showError(request: Home.ShowError.Request) {
@@ -67,7 +67,7 @@ extension HomeInteractor: HomeBusinessLogic {
     }
 
     func getGreeting(request: Home.GetGreeting.Request) {
-        presenter.presentGreeting(response: .init(greeting: greeting.text(date: Date())))
+        presenter.presentGreeting(response: .init(greeting: greeting.text(date: request.date)))
     }
 
     func getSavedCities(request: Home.GetSavedCities.Request) {

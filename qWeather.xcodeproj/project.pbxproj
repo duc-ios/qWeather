@@ -23,6 +23,7 @@
 		892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */; };
 		892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */; };
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
+		896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
 		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
 		8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990725A2C80117200BF43C2 /* CityRepository.swift */; };
@@ -51,7 +52,6 @@
 		89C83BC72C7F996300942BD4 /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC62C7F996300942BD4 /* Greeting.swift */; };
 		89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */; };
 		89C83BD32C7F99E800942BD4 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */; };
-		89C83BD42C7F99E800942BD4 /* SafeArea+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */; };
 		89C83BD52C7F99E800942BD4 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BD12C7F99E800942BD4 /* String+Extensions.swift */; };
 		89C83BDF2C7F9A3E00942BD4 /* LinearButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BD92C7F9A3E00942BD4 /* LinearButtonStyle.swift */; };
 		89C83BE02C7F9A3E00942BD4 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BDA2C7F9A3E00942BD4 /* PageControl.swift */; };
@@ -123,6 +123,7 @@
 		892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
+		896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncedState.swift; sourceTree = "<group>"; };
 		899072562C80035F00BF43C2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		8990725A2C80117200BF43C2 /* CityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRepository.swift; sourceTree = "<group>"; };
 		8990725D2C801CA300BF43C2 /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
@@ -152,7 +153,6 @@
 		89C83BC62C7F996300942BD4 /* Greeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Greeting.swift; sourceTree = "<group>"; };
 		89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
-		89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SafeArea+Extensions.swift"; sourceTree = "<group>"; };
 		89C83BD12C7F99E800942BD4 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		89C83BD62C7F9A0400942BD4 /* GreetingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingTests.swift; sourceTree = "<group>"; };
 		89C83BD92C7F9A3E00942BD4 /* LinearButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearButtonStyle.swift; sourceTree = "<group>"; };
@@ -381,6 +381,7 @@
 				89C83BC22C7F995300942BD4 /* Router.swift */,
 				89C83C1D2C7FB03B00942BD4 /* Searchable_iOS16.swift */,
 				8990726A2C83865500BF43C2 /* VerbosePlugin.swift */,
+				896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -418,7 +419,6 @@
 			children = (
 				892FF6A22C7FB5CC004FBBEA /* JSON+Extensions.swift */,
 				89C83BCF2C7F99E800942BD4 /* Color+Extensions.swift */,
-				89C83BD02C7F99E800942BD4 /* SafeArea+Extensions.swift */,
 				89C83BD12C7F99E800942BD4 /* String+Extensions.swift */,
 				899072602C801ECC00BF43C2 /* Moya+Concurency.swift */,
 				899072622C80233B00BF43C2 /* Num+Extensions.swift */,
@@ -679,6 +679,7 @@
 				892FF69D2C7FB40A004FBBEA /* LandingDataStore.swift in Sources */,
 				899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */,
 				892FF69E2C7FB40A004FBBEA /* LandingInteractor.swift in Sources */,
+				896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */,
 				892FF69F2C7FB40A004FBBEA /* LandingView.swift in Sources */,
 				892FF6A02C7FB40A004FBBEA /* LandingModel.swift in Sources */,
 				892FF6A12C7FB40A004FBBEA /* LandingConfigurator.swift in Sources */,
@@ -692,7 +693,6 @@
 				899072692C803E1400BF43C2 /* OpenWeatherMapService.swift in Sources */,
 				89C83B962C7F98E300942BD4 /* AppView.swift in Sources */,
 				89C83BC52C7F995300942BD4 /* Route.swift in Sources */,
-				89C83BD42C7F99E800942BD4 /* SafeArea+Extensions.swift in Sources */,
 				89C83BD32C7F99E800942BD4 /* Color+Extensions.swift in Sources */,
 				89C83BC42C7F995300942BD4 /* Router.swift in Sources */,
 				89C83BE72C7F9A4A00942BD4 /* CityModel.swift in Sources */,

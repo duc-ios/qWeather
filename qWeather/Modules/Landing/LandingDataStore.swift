@@ -10,9 +10,17 @@ import Foundation
 
 final class LandingDataStore: BaseDataStore {
     enum Event: Equatable {
-        case loading(Bool),
-             error(AppError),
-             homeOrOnboarding
+        enum View: Equatable {
+            case loading(Bool),
+                 alert(title: String, message: String),
+                 error(AppError)
+        }
+
+        enum Router: Equatable {
+            case homeOrOnboarding
+        }
+
+        case view(View), router(Router)
     }
 
     @Published var event: Event?
@@ -28,16 +36,17 @@ final class LandingDataStore: BaseDataStore {
             .store(in: &cancellables)
     }
 
-    func reduce(_ event: LandingDataStore.Event?) {
+    func reduce(_ event: Event?) {
+        guard case .view(let event) = event else { return }
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading
-        case .error(let error):
-            alertTitle = error.title
-            alertMessage = error.message
+        case .alert(let title, let message):
+            alertTitle = title
+            alertMessage = message
             displayAlert = true
-        default:
-            break
+        case .error(let error):
+            self.event = .view(.alert(title: error.title, message: error.message))
         }
     }
 }

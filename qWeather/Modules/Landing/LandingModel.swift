@@ -9,6 +9,18 @@ import Foundation
 
 // swiftlint:disable nesting
 enum Landing {
+    enum ShowAlert {
+        struct Request {
+            var title: String
+            var message: String
+        }
+
+        struct Response {
+            var title: String
+            var message: String
+        }
+    }
+
     enum ShowError {
         struct Request {
             var error: Error

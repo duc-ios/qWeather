@@ -26,26 +26,26 @@ class HomePresenter {
 
 extension HomePresenter: HomePresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.store.event = .loading(isLoading)
+        view.store.event = .view(.loading(isLoading))
     }
     
     func presentAlert(response: Home.ShowAlert.Response) {
-        view.store.event = .alert(title: response.message, message: "")
+        view.store.event = .view(.alert(title: response.title, message: response.message))
     }
 
     func presentError(response: Home.ShowError.Response) {
-        view.store.event = .error(response.error)
+        view.store.event = .view(.error(response.error))
     }
     
     func presentGreeting(response: Home.GetGreeting.Response) {
-        view.store.event = .greeting(response.greeting)
+        view.store.event = .view(.greeting(response.greeting))
     }
     
     func presentSavedCities(response: Home.GetSavedCities.Response) {
-        view.store.event = .savedCities(response.savedCities)
+        view.store.event = .view(.savedCities(response.savedCities))
     }
     
     func presentCities(response: Home.SearchCities.Response) {
-        view.store.event = .cities(response.cities)
+        view.store.event = .view(.cities(response.cities))
     }
 }

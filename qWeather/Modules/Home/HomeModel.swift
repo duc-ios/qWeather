@@ -18,19 +18,23 @@ enum Home {
             var error: AppError
         }
     }
-
+    
     enum ShowAlert {
         struct Request {
+            var title: String
             var message: String
         }
         
         struct Response {
+            var title: String
             var message: String
         }
     }
 
     enum GetGreeting {
-        struct Request {}
+        struct Request {
+            var date: Date
+        }
 
         struct Response {
             var greeting: String
@@ -66,4 +70,5 @@ enum Home {
         }
     }
 }
+
 // swiftlint:enable nesting

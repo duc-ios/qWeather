@@ -20,6 +20,7 @@ struct HomeView: View, HomeDisplayLogic {
 
     @ObservedObject var store = HomeDataStore()
     @EnvironmentObject var router: Router
+    @StateObject var keyword = DebounceState(initialValue: "")
 
     var body: some View {
         Group {
@@ -64,7 +65,7 @@ struct HomeView: View, HomeDisplayLogic {
             }
         }
         .searchable_iOS16(
-            text: $store.keyword,
+            text: $keyword.currentValue,
             isPresented: $store.isSearching,
             placement: .automatic)
         .navigationTitle(store.greeting)
@@ -74,15 +75,10 @@ struct HomeView: View, HomeDisplayLogic {
                actions: { Button(L10n.ok) {} },
                message: { Text(store.alertMessage) })
         .onAppear {
-            interactor.getGreeting(request: .init())
+            interactor.getGreeting(request: .init(date: Date()))
         }
-        .onChange(of: store.event) {
-            switch $0 {
-            case .search(let keyword):
-                interactor.searchCities(request: .init(keyword: keyword))
-            default:
-                break
-            }
+        .onChange(of: keyword.debouncedValue) {
+            interactor.searchCities(request: .init(keyword: $0))
         }
     }
 }

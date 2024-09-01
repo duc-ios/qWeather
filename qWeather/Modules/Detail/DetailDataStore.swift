@@ -11,10 +11,14 @@ import Foundation
 final class DetailDataStore: BaseDataStore {
     private var cancellables = Set<AnyCancellable>()
     enum Event: Equatable {
-        case loading(Bool),
-             alert(title: String, message: String),
-             error(AppError),
-             currentWeather(WeatherModel)
+        enum View: Equatable {
+            case loading(Bool),
+                 alert(title: String, message: String),
+                 error(AppError),
+                 currentWeather(WeatherModel)
+        }
+        
+        case view(View)
     }
 
     @Published var event: Event?
@@ -44,6 +48,7 @@ final class DetailDataStore: BaseDataStore {
     }
 
     func reduce(_ event: Event?) {
+        guard case .view(let event) = event else { return }
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading
@@ -52,7 +57,7 @@ final class DetailDataStore: BaseDataStore {
             alertMessage = message
             displayAlert = true
         case .error(let error):
-            self.event = .alert(title: error.title, message: error.message)
+            self.event = .view(.alert(title: error.title, message: error.message))
         case .currentWeather(let weather):
             icon = weather.weather.first?.icon
             name = weather.name
@@ -66,8 +71,6 @@ final class DetailDataStore: BaseDataStore {
             pressure = L10n.Detail.pressure(weather.main.pressure)
             humidity = L10n.Detail.humidity(weather.main.humidity)
             visibility = L10n.Detail.visibility(weather.visibility)
-        default:
-            break
         }
     }
 }
