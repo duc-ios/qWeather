@@ -77,6 +77,7 @@ struct DetailView: View, DetailDisplayLogic {
         .onAppear {
             interactor.getCurrentWeather(request: .init(city: store.city))
         }
+        .navigationBarBackButtonHidden()
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
