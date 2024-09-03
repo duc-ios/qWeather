@@ -22,5 +22,6 @@
 "error.something_went_wrong" = "Something went wrong";
 "error.unimplemented" = "Unimplemented";
 "error.unexpected" = "Unexpected Error";
+"error.unauthenticated" = "Unauthenticated";
 "error.bad_request" = "Bad Request";
 "error.try_again" = "Please try again later.";

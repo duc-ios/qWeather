@@ -62,6 +62,8 @@ internal enum L10n {
     internal static let somethingWentWrong = L10n.tr("Localizable", "error.something_went_wrong", fallback: "Something went wrong")
     /// Please try again later.
     internal static let tryAgain = L10n.tr("Localizable", "error.try_again", fallback: "Please try again later.")
+    /// Unauthenticated
+    internal static let unauthenticated = L10n.tr("Localizable", "error.unauthenticated", fallback: "Unauthenticated")
     /// Unexpected Error
     internal static let unexpected = L10n.tr("Localizable", "error.unexpected", fallback: "Unexpected Error")
     /// Unimplemented

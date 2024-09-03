@@ -104,7 +104,7 @@ extension HomeInteractor: HomeBusinessLogic {
                 }
                 presenter.presentCities(response: .init(cities: cities))
             } else {
-                presenter.presentError(response: .init(error: .message(L10n.notFound)))
+                presenter.presentError(response: .init(error: AppError.notFound))
             }
         } catch {
             showError(request: .init(error: error))

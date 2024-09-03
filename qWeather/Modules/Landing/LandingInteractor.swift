@@ -34,7 +34,7 @@ extension LandingInteractor: LandingBusinessLogic {
     
     func getCities(request: Landing.GetCities.Request) {
         showLoading(isLoading: true)
-        let error = AppError.message("Cannot parse cities json")
+        let error = AppError.other(message: "Cannot parse cities json")
         do {
             if let _: CityModel = try repository.read(primaryKey: 15) {
                 showLoading(isLoading: false)

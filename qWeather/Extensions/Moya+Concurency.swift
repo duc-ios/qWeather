@@ -7,6 +7,7 @@
 
 import Foundation
 import Moya
+import SwiftyJSON
 
 extension MoyaProvider {
     class MoyaConcurrency {
@@ -21,11 +22,24 @@ extension MoyaProvider {
                 provider.request(target) { result in
                     switch result {
                     case .success(let response):
-                        do {
-                            let res = try T.self(data: response.data)
-                            continuation.resume(returning: res)
-                        } catch {
-                            continuation.resume(throwing: error)
+                        switch response.statusCode {
+                        case 200..<400: // success
+                            do {
+                                let res = try T.self(data: response.data)
+                                continuation.resume(returning: res)
+                            } catch {
+                                continuation.resume(throwing: error)
+                            }
+                        case 401: // unauthenticated
+                            continuation.resume(throwing: AppError.unauthenticated)
+                        case 400..<500: // error
+                            if let message = JSON(response.data)["message"].string {
+                                continuation.resume(throwing: AppError.other(code: response.statusCode, message: message))
+                            } else {
+                                continuation.resume(throwing: AppError.unexpected)
+                            }
+                        default: // server error
+                            continuation.resume(throwing: AppError.unexpected)
                         }
                     case .failure(let error):
                         continuation.resume(throwing: error)

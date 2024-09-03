@@ -15,10 +15,12 @@ enum AppError: LocalizedError, Equatable {
     case
         unimplemented,
         unexpected,
+        unauthenticated,
         badRequest,
+        notFound,
         network,
         error(Error),
-        message(String)
+        other(code: Int = -1, message: String)
 
     var errorDescription: String? {
         message
@@ -39,18 +41,26 @@ enum AppError: LocalizedError, Equatable {
             return L10n.Error.unimplemented
         case .unexpected:
             return L10n.Error.unexpected
+        case .unauthenticated:
+            return L10n.Error.unauthenticated
         case .badRequest:
             return L10n.Error.badRequest
+        case .notFound:
+            return L10n.notFound
         case .network:
             return L10n.Error.tryAgain
-        case .error(let error):
+        case let .error(error):
             if let error = error as? AppError {
                 return error.message
             } else {
                 return (error as NSError).description
             }
-        case .message(let message):
+        case let .other(code, message):
+#if DEBUG
+            return "\(code): \(message)"
+#else
             return message
+#endif
         }
     }
 }
