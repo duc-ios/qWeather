@@ -27,10 +27,10 @@ protocol WeatherRepository {
      - Example:
      ```swift
      do {
-     let weather = try await getCurrentWeather(lat: 37.7749, lon: -122.4194)
-     print("Current temperature: \(weather.temperature)°C")
+        let weather = try await getCurrentWeather(lat: 37.7749, lon: -122.4194)
+        print("Current temperature: \(weather.main.temp)")
      } catch {
-     print("Failed to fetch weather data: \(error)")
+        print("Failed to fetch weather data: \(error)")
      }
      ```
      */
