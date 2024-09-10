@@ -8,36 +8,21 @@
 import Combine
 import Foundation
 
-final class LandingDataStore: BaseDataStore {
-    enum Event: Equatable {
-        enum View: Equatable {
-            case loading(Bool),
-                 alert(title: String, message: String),
-                 error(AppError)
-        }
-
-        enum Router: Equatable {
-            case homeOrOnboarding
-        }
-
-        case view(View), router(Router)
-    }
-
-    @Published var event: Event?
-
-    private var cancellables = Set<AnyCancellable>()
-
+final class LandingDataStore: BaseDataStore<LandingEvent>, LandingDisplayLogic {
     override init() {
         super.init()
 
         $event
             .receive(on: DispatchQueue.main)
+            .compactMap {
+                guard case .view(let event) = $0 else { return nil }
+                return event
+            }
             .sink(receiveValue: reduce)
             .store(in: &cancellables)
     }
 
-    func reduce(_ event: Event?) {
-        guard case .view(let event) = event else { return }
+    func reduce(_ event: LandingEvent.View) {
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading

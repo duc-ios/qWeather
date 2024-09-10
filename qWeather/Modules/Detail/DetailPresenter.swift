@@ -19,23 +19,23 @@ class DetailPresenter {
         self.view = view
     }
 
-    private let view: DetailDisplayLogic
+    private var view: DetailDisplayLogic
 }
 
 extension DetailPresenter: DetailPresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.store.event = .view(.loading(isLoading))
+        view.event = .view(.loading(isLoading))
     }
     
     func presentAlert(response: Detail.ShowAlert.Response) {
-        view.store.event = .view(.alert(title: response.title, message: response.message))
+        view.event = .view(.alert(title: response.title, message: response.message))
     }
 
     func presentError(response: Detail.ShowError.Response) {
-        view.store.event = .view(.error(response.error))
+        view.event = .view(.error(response.error))
     }
     
     func presentCurrentWeather(response: Detail.GetCurrentWeather.Response) {
-        view.store.event = .view(.currentWeather(response.weather))
+        view.event = .view(.currentWeather(response.weather))
     }
 }

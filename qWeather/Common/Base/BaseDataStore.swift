@@ -5,11 +5,13 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Foundation
+import Combine
 
 // MARK: - BaseDataStore
 
-class BaseDataStore: ObservableObject {
+class BaseDataStore<Event>: ObservableObject {
+    var cancellables = Set<AnyCancellable>()
+    @Published var event: Event?
     @Published var isLoading = false
     @Published var alertTitle = ""
     @Published var alertMessage = ""

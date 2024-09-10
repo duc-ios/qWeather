@@ -11,7 +11,7 @@ extension LandingView {
     func configured(
     ) -> LandingView {
         var view = self
-        let presenter = LandingPresenter(view: view)
+        let presenter = LandingPresenter(view: view.store)
         let interactor = LandingInteractor(presenter: presenter, repository: CityRepositoryImp())
         view.interactor = interactor
         return view

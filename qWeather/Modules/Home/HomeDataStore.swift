@@ -10,24 +10,7 @@ import Foundation
 
 // MARK: - HomeDataStore
 
-final class HomeDataStore: BaseDataStore {
-    enum Event: Equatable {
-        enum View: Equatable {
-            case loading(Bool),
-                 alert(title: String, message: String),
-                 error(AppError),
-                 greeting(String),
-                 savedCities([CityModel]),
-                 cities([CityModel])
-        }
-        
-        case view(View)
-    }
-
-    @Published var event: Event?
-
-    var cancellables = Set<AnyCancellable>()
-
+final class HomeDataStore: BaseDataStore<HomeEvent>, HomeDisplayLogic {
     @Published var greeting = ""
     @Published var isSearching = false
     @Published var savedCities = [CityModel]()
@@ -38,12 +21,15 @@ final class HomeDataStore: BaseDataStore {
 
         $event
             .receive(on: DispatchQueue.main)
+            .compactMap {
+                guard case .view(let event) = $0 else { return nil }
+                return event
+            }
             .sink(receiveValue: reduce)
             .store(in: &cancellables)
     }
 
-    func reduce(_ event: Event?) {
-        guard case .view(let event) = event else { return }
+    func reduce(_ event: HomeEvent.View) {
         switch event {
         case .loading(let isLoading):
             self.isLoading = isLoading

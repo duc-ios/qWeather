@@ -7,15 +7,30 @@
 
 import SwiftUI
 
+// MARK: - HomeEvent
+
+enum HomeEvent: Equatable {
+    enum View: Equatable {
+        case loading(Bool),
+             alert(title: String, message: String),
+             error(AppError),
+             greeting(String),
+             savedCities([CityModel]),
+             cities([CityModel])
+    }
+
+    case view(View)
+}
+
 // MARK: - HomeDisplayLogic
 
 protocol HomeDisplayLogic {
-    var store: HomeDataStore { get set }
+    var event: HomeEvent? { get set }
 }
 
 // MARK: - HomeView
 
-struct HomeView: View, HomeDisplayLogic {
+struct HomeView: View {
     var interactor: HomeBusinessLogic!
 
     @ObservedObject var store = HomeDataStore()

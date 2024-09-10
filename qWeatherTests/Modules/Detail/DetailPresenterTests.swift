@@ -41,8 +41,8 @@ final class DetailPresenterTests: XCTestCase {
         sut.presentCurrentWeather(response: response)
         
         // Then
-        XCTAssertEqual(view.store.name, dummyWeather.name)
-        XCTAssertEqual(view.store.temp, dummyWeather.main.temp)
+        XCTAssertEqual(view.name, dummyWeather.name)
+        XCTAssertEqual(view.temp, dummyWeather.main.temp)
     }
     
     func testDisplayError() {
@@ -53,35 +53,40 @@ final class DetailPresenterTests: XCTestCase {
         sut.presentError(response: .init(error: error))
         
         // Then
-        XCTAssertEqual(view.store.alertTitle, error.title)
-        XCTAssertEqual(view.store.alertMessage, error.message)
-        XCTAssertEqual(view.store.displayAlert, true)
+        XCTAssertEqual(view.alertTitle, error.title)
+        XCTAssertEqual(view.alertMessage, error.message)
+        XCTAssertEqual(view.displayAlert, true)
     }
 }
 
 // MARK: - DetailViewMock
 
 final class DetailViewMock: DetailDisplayLogic {
-    var store = DetailDataStore()
-    var cancellables = Set<AnyCancellable>()
+    var alertTitle: String?
+    var alertMessage: String?
+    var displayAlert = false
+    var name: String?
+    var temp: String?
     
-    init() {
-        store.$event.sink { [weak self] in
-            guard let self, case .view(let event) = $0 else { return }
+    var event: DetailEvent? {
+        didSet {
+            guard case .view(let event) = event else { return }
             switch event {
             case .alert(let title, let message):
-                store.alertTitle = title
-                store.alertMessage = message
-                store.displayAlert = true
+                alertTitle = title
+                alertMessage = message
+                displayAlert = true
             case .error(let error):
-                store.event = .view(.alert(title: error.title, message: error.message))
+                alertTitle = error.title
+                alertMessage = error.message
+                displayAlert = true
             case .currentWeather(let weather):
-                store.name = weather.name
-                store.temp = weather.main.temp
+                name = weather.name
+                temp = weather.main.temp
             default:
                 break
             }
-        }.store(in: &cancellables)
+        }
     }
 }
 
