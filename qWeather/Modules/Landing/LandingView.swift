@@ -7,15 +7,31 @@
 
 import SwiftUI
 
+// MARK: - LandingEvent
+
+enum LandingEvent: Equatable {
+    enum View: Equatable {
+        case loading(Bool),
+             alert(title: String, message: String),
+             error(AppError)
+    }
+
+    enum Router: Equatable {
+        case homeOrOnboarding
+    }
+
+    case view(View), router(Router)
+}
+
 // MARK: - LandingDisplayLogic
 
 protocol LandingDisplayLogic {
-    var store: LandingDataStore { get set }
+    var event: LandingEvent? { get set }
 }
 
 // MARK: - LandingView
 
-struct LandingView: View, LandingDisplayLogic {
+struct LandingView: View {
     var interactor: LandingBusinessLogic!
     @ObservedObject var store = LandingDataStore()
     @EnvironmentObject var userSettings: UserSettings

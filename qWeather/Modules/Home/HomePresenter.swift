@@ -21,31 +21,31 @@ class HomePresenter {
         self.view = view
     }
 
-    private let view: HomeDisplayLogic
+    private var view: HomeDisplayLogic
 }
 
 extension HomePresenter: HomePresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.store.event = .view(.loading(isLoading))
+        view.event = .view(.loading(isLoading))
     }
     
     func presentAlert(response: Home.ShowAlert.Response) {
-        view.store.event = .view(.alert(title: response.title, message: response.message))
+        view.event = .view(.alert(title: response.title, message: response.message))
     }
 
     func presentError(response: Home.ShowError.Response) {
-        view.store.event = .view(.error(response.error))
+        view.event = .view(.error(response.error))
     }
     
     func presentGreeting(response: Home.GetGreeting.Response) {
-        view.store.event = .view(.greeting(response.greeting))
+        view.event = .view(.greeting(response.greeting))
     }
     
     func presentSavedCities(response: Home.GetSavedCities.Response) {
-        view.store.event = .view(.savedCities(response.savedCities))
+        view.event = .view(.savedCities(response.savedCities))
     }
     
     func presentCities(response: Home.SearchCities.Response) {
-        view.store.event = .view(.cities(response.cities))
+        view.event = .view(.cities(response.cities))
     }
 }

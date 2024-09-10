@@ -1,5 +1,5 @@
 //
-//  LandingModel.swift
+//  DetailUseCases.swift
 //  qWeather
 //
 //  Created by Duc on 29/8/24.
@@ -8,19 +8,7 @@
 import Foundation
 
 // swiftlint:disable nesting
-enum Landing {
-    enum ShowAlert {
-        struct Request {
-            var title: String
-            var message: String
-        }
-
-        struct Response {
-            var title: String
-            var message: String
-        }
-    }
-
+enum Detail {
     enum ShowError {
         struct Request {
             var error: Error
@@ -30,12 +18,27 @@ enum Landing {
             var error: AppError
         }
     }
-
-    enum GetCities {
-        struct Request {}
-
-        struct Response {}
+    
+    enum ShowAlert {
+        struct Request {
+            var title: String
+            var message: String
+        }
+        
+        struct Response {
+            var title: String
+            var message: String
+        }
+    }
+    
+    enum GetCurrentWeather {
+        struct Request {
+            var city: CityModel
+        }
+        
+        struct Response {
+            var weather: WeatherModel
+        }
     }
 }
-
 // swiftlint:enable nesting

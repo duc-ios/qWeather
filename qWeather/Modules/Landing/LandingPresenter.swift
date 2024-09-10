@@ -18,19 +18,19 @@ class LandingPresenter {
         self.view = view
     }
 
-    private let view: LandingDisplayLogic
+    private var view: LandingDisplayLogic
 }
 
 extension LandingPresenter: LandingPresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.store.event = .view(.loading(isLoading))
+        view.event = .view(.loading(isLoading))
     }
 
     func presentError(response: Landing.ShowError.Response) {
-        view.store.event = .view(.error(response.error))
+        view.event = .view(.error(response.error))
     }
     
     func presentHomeOrOnBoarding(response: Landing.GetCities.Response) {
-        view.store.event = .router(.homeOrOnboarding)
+        view.event = .router(.homeOrOnboarding)
     }
 }

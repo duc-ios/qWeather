@@ -11,7 +11,7 @@ extension HomeView {
     func configured(
     ) -> HomeView {
         var view = self
-        let presenter = HomePresenter(view: view)
+        let presenter = HomePresenter(view: view.store)
         let interactor = HomeInteractor(presenter: presenter, repository: CityRepositoryImp())
         view.interactor = interactor
         return view

@@ -41,7 +41,7 @@ final class HomePresenterTests: XCTestCase {
         sut.presentGreeting(response: response)
         
         // Then
-        XCTAssertEqual(view.store.greeting, "Good Morning!")
+        XCTAssertEqual(view.greeting, "Good Morning!")
     }
     
     func testDisplayError() {
@@ -52,33 +52,37 @@ final class HomePresenterTests: XCTestCase {
         sut.presentError(response: .init(error: error))
         
         // Then
-        XCTAssertEqual(view.store.alertTitle, error.title)
-        XCTAssertEqual(view.store.alertMessage, error.message)
-        XCTAssertEqual(view.store.displayAlert, true)
+        XCTAssertEqual(view.alertTitle, error.title)
+        XCTAssertEqual(view.alertMessage, error.message)
+        XCTAssertEqual(view.displayAlert, true)
     }
 }
 
 // MARK: - HomeViewMock
 
 final class HomeViewMock: HomeDisplayLogic {
-    var store = HomeDataStore()
-    var cancellables = Set<AnyCancellable>()
+    var greeting: String?
+    var alertTitle: String?
+    var alertMessage: String?
+    var displayAlert = false
     
-    init() {
-        store.$event.sink { [weak self] in
-            guard let self, case .view(let event) = $0 else { return }
+    var event: HomeEvent? {
+        didSet {
+            guard case let .view(event) = event else { return }
             switch event {
             case .greeting(let greeting):
-                store.greeting = greeting
+                self.greeting = greeting
             case .alert(let title, let message):
-                store.alertTitle = title
-                store.alertMessage = message
-                store.displayAlert = true
+                alertTitle = title
+                alertMessage = message
+                displayAlert = true
             case .error(let error):
-                store.event = .view(.alert(title: error.title, message: error.message))
+                alertTitle = error.title
+                alertMessage = error.message
+                displayAlert = true
             default:
                 break
             }
-        }.store(in: &cancellables)
+        }
     }
 }

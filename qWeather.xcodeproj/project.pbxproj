@@ -11,7 +11,7 @@
 		892FF69D2C7FB40A004FBBEA /* LandingDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6972C7FB40A004FBBEA /* LandingDataStore.swift */; };
 		892FF69E2C7FB40A004FBBEA /* LandingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6982C7FB40A004FBBEA /* LandingInteractor.swift */; };
 		892FF69F2C7FB40A004FBBEA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6992C7FB40A004FBBEA /* LandingView.swift */; };
-		892FF6A02C7FB40A004FBBEA /* LandingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF69A2C7FB40A004FBBEA /* LandingModel.swift */; };
+		892FF6A02C7FB40A004FBBEA /* LandingUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF69A2C7FB40A004FBBEA /* LandingUseCases.swift */; };
 		892FF6A12C7FB40A004FBBEA /* LandingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF69B2C7FB40A004FBBEA /* LandingConfigurator.swift */; };
 		892FF6A42C7FB5CC004FBBEA /* JSON+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6A22C7FB5CC004FBBEA /* JSON+Extensions.swift */; };
 		892FF6A82C7FB5FC004FBBEA /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 892FF6A72C7FB5FC004FBBEA /* SwiftyJSON */; };
@@ -21,7 +21,7 @@
 		892FF6CF2C7FF5CA004FBBEA /* DetailDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6C92C7FF5CA004FBBEA /* DetailDataStore.swift */; };
 		892FF6D02C7FF5CA004FBBEA /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CA2C7FF5CA004FBBEA /* DetailInteractor.swift */; };
 		892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */; };
-		892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */; };
+		892FF6D22C7FF5CA004FBBEA /* DetailUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CC2C7FF5CA004FBBEA /* DetailUseCases.swift */; };
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
 		896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
@@ -64,7 +64,7 @@
 		89C83BF52C7F9A8900942BD4 /* HomeDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BEF2C7F9A8900942BD4 /* HomeDataStore.swift */; };
 		89C83BF62C7F9A8900942BD4 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF02C7F9A8900942BD4 /* HomeInteractor.swift */; };
 		89C83BF72C7F9A8900942BD4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF12C7F9A8900942BD4 /* HomeView.swift */; };
-		89C83BF82C7F9A8900942BD4 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF22C7F9A8900942BD4 /* HomeModel.swift */; };
+		89C83BF82C7F9A8900942BD4 /* HomeUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF22C7F9A8900942BD4 /* HomeUseCases.swift */; };
 		89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */; };
 		89C83BFD2C7F9B2600942BD4 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */; };
 		89C83C092C7FA1C000942BD4 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 89C83C082C7FA1C000942BD4 /* Moya */; };
@@ -111,7 +111,7 @@
 		892FF6972C7FB40A004FBBEA /* LandingDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingDataStore.swift; sourceTree = "<group>"; };
 		892FF6982C7FB40A004FBBEA /* LandingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingInteractor.swift; sourceTree = "<group>"; };
 		892FF6992C7FB40A004FBBEA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
-		892FF69A2C7FB40A004FBBEA /* LandingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingModel.swift; sourceTree = "<group>"; };
+		892FF69A2C7FB40A004FBBEA /* LandingUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingUseCases.swift; sourceTree = "<group>"; };
 		892FF69B2C7FB40A004FBBEA /* LandingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingConfigurator.swift; sourceTree = "<group>"; };
 		892FF6A22C7FB5CC004FBBEA /* JSON+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JSON+Extensions.swift"; sourceTree = "<group>"; };
 		892FF6A92C7FB655004FBBEA /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 		892FF6C92C7FF5CA004FBBEA /* DetailDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataStore.swift; sourceTree = "<group>"; };
 		892FF6CA2C7FF5CA004FBBEA /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		892FF6CC2C7FF5CA004FBBEA /* DetailUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUseCases.swift; sourceTree = "<group>"; };
 		892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
 		896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebouncedState.swift; sourceTree = "<group>"; };
 		899072562C80035F00BF43C2 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		89C83BEF2C7F9A8900942BD4 /* HomeDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataStore.swift; sourceTree = "<group>"; };
 		89C83BF02C7F9A8900942BD4 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
 		89C83BF12C7F9A8900942BD4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		89C83BF22C7F9A8900942BD4 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		89C83BF22C7F9A8900942BD4 /* HomeUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeUseCases.swift; sourceTree = "<group>"; };
 		89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeConfigurator.swift; sourceTree = "<group>"; };
 		89C83BFB2C7F9B2600942BD4 /* RealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		89C83C162C7FAC0F00942BD4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				892FF6972C7FB40A004FBBEA /* LandingDataStore.swift */,
 				892FF6982C7FB40A004FBBEA /* LandingInteractor.swift */,
 				892FF6992C7FB40A004FBBEA /* LandingView.swift */,
-				892FF69A2C7FB40A004FBBEA /* LandingModel.swift */,
+				892FF69A2C7FB40A004FBBEA /* LandingUseCases.swift */,
 				892FF69B2C7FB40A004FBBEA /* LandingConfigurator.swift */,
 			);
 			path = Landing;
@@ -233,7 +233,7 @@
 				892FF6C92C7FF5CA004FBBEA /* DetailDataStore.swift */,
 				892FF6CA2C7FF5CA004FBBEA /* DetailInteractor.swift */,
 				892FF6CB2C7FF5CA004FBBEA /* DetailView.swift */,
-				892FF6CC2C7FF5CA004FBBEA /* DetailModel.swift */,
+				892FF6CC2C7FF5CA004FBBEA /* DetailUseCases.swift */,
 				892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */,
 			);
 			path = Detail;
@@ -472,7 +472,7 @@
 				89C83BEF2C7F9A8900942BD4 /* HomeDataStore.swift */,
 				89C83BF02C7F9A8900942BD4 /* HomeInteractor.swift */,
 				89C83BF12C7F9A8900942BD4 /* HomeView.swift */,
-				89C83BF22C7F9A8900942BD4 /* HomeModel.swift */,
+				89C83BF22C7F9A8900942BD4 /* HomeUseCases.swift */,
 				89C83BF32C7F9A8900942BD4 /* HomeConfigurator.swift */,
 			);
 			path = Home;
@@ -681,12 +681,12 @@
 				892FF69E2C7FB40A004FBBEA /* LandingInteractor.swift in Sources */,
 				896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */,
 				892FF69F2C7FB40A004FBBEA /* LandingView.swift in Sources */,
-				892FF6A02C7FB40A004FBBEA /* LandingModel.swift in Sources */,
+				892FF6A02C7FB40A004FBBEA /* LandingUseCases.swift in Sources */,
 				892FF6A12C7FB40A004FBBEA /* LandingConfigurator.swift in Sources */,
 				89C83BF72C7F9A8900942BD4 /* HomeView.swift in Sources */,
 				89C83BFD2C7F9B2600942BD4 /* RealmDB.swift in Sources */,
 				8990725B2C80117200BF43C2 /* CityRepository.swift in Sources */,
-				89C83BF82C7F9A8900942BD4 /* HomeModel.swift in Sources */,
+				89C83BF82C7F9A8900942BD4 /* HomeUseCases.swift in Sources */,
 				89C83BF92C7F9A8900942BD4 /* HomeConfigurator.swift in Sources */,
 				89C83BE02C7F9A3E00942BD4 /* PageControl.swift in Sources */,
 				892FF6AA2C7FB655004FBBEA /* ObjectAssociation.swift in Sources */,
@@ -706,7 +706,7 @@
 				892FF6D02C7FF5CA004FBBEA /* DetailInteractor.swift in Sources */,
 				892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */,
 				899072632C80233B00BF43C2 /* Num+Extensions.swift in Sources */,
-				892FF6D22C7FF5CA004FBBEA /* DetailModel.swift in Sources */,
+				892FF6D22C7FF5CA004FBBEA /* DetailUseCases.swift in Sources */,
 				892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */,
 				8990725E2C801CA300BF43C2 /* Configs.swift in Sources */,
 				89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */,

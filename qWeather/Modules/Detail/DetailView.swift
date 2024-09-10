@@ -8,15 +8,28 @@
 import Kingfisher
 import SwiftUI
 
+// MARK: - DetailEvent
+
+enum DetailEvent: Equatable {
+    enum View: Equatable {
+        case loading(Bool),
+             alert(title: String, message: String),
+             error(AppError),
+             currentWeather(WeatherModel)
+    }
+
+    case view(View)
+}
+
 // MARK: - DetailDisplayLogic
 
 protocol DetailDisplayLogic {
-    var store: DetailDataStore { get set }
+    var event: DetailEvent? { get set }
 }
 
 // MARK: - DetailView
 
-struct DetailView: View, DetailDisplayLogic {
+struct DetailView: View {
     var interactor: DetailBusinessLogic!
     @ObservedObject var store = DetailDataStore()
     @EnvironmentObject var router: Router

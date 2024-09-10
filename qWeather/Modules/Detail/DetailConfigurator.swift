@@ -13,7 +13,7 @@ extension DetailView {
     ) -> DetailView {
         var view = self
         view.store.city = city
-        let presenter = DetailPresenter(view: view)
+        let presenter = DetailPresenter(view: view.store)
         let interactor = DetailInteractor(presenter: presenter, repository: WeatherRepositoryImp())
         view.interactor = interactor
         return view

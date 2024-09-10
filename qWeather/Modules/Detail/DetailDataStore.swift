@@ -8,21 +8,7 @@
 import Combine
 import Foundation
 
-final class DetailDataStore: BaseDataStore {
-    private var cancellables = Set<AnyCancellable>()
-    enum Event: Equatable {
-        enum View: Equatable {
-            case loading(Bool),
-                 alert(title: String, message: String),
-                 error(AppError),
-                 currentWeather(WeatherModel)
-        }
-        
-        case view(View)
-    }
-
-    @Published var event: Event?
-
+final class DetailDataStore: BaseDataStore<DetailEvent>, DetailDisplayLogic {
     var city: CityModel!
 
     @Published var icon: URL?
@@ -47,7 +33,7 @@ final class DetailDataStore: BaseDataStore {
             .store(in: &cancellables)
     }
 
-    func reduce(_ event: Event?) {
+    func reduce(_ event: DetailEvent?) {
         guard case .view(let event) = event else { return }
         switch event {
         case .loading(let isLoading):

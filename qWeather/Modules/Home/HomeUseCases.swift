@@ -1,5 +1,5 @@
 //
-//  HomeModel.swift
+//  HomeUseCases.swift
 //  qWeather
 //
 //  Created by Duc on 29/8/24.
