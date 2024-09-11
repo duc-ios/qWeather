@@ -23,14 +23,20 @@ class LandingPresenter {
 
 extension LandingPresenter: LandingPresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.event = .view(.loading(isLoading))
+        Task { @MainActor in
+            view.event = .view(.loading(isLoading))
+        }
     }
 
     func presentError(response: Landing.ShowError.Response) {
-        view.event = .view(.error(response.error))
+        Task { @MainActor in
+            view.event = .view(.error(response.error))
+        }
     }
     
     func presentHomeOrOnBoarding(response: Landing.GetCities.Response) {
-        view.event = .router(.homeOrOnboarding)
+        Task { @MainActor in
+            view.event = .router(.homeOrOnboarding)
+        }
     }
 }

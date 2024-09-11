@@ -26,26 +26,38 @@ class HomePresenter {
 
 extension HomePresenter: HomePresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.event = .view(.loading(isLoading))
+        Task { @MainActor in
+            view.event = .view(.loading(isLoading))
+        }
     }
     
     func presentAlert(response: Home.ShowAlert.Response) {
-        view.event = .view(.alert(title: response.title, message: response.message))
+        Task { @MainActor in
+            view.event = .view(.alert(title: response.title, message: response.message))
+        }
     }
 
     func presentError(response: Home.ShowError.Response) {
-        view.event = .view(.error(response.error))
+        Task { @MainActor in
+            view.event = .view(.error(response.error))
+        }
     }
     
     func presentGreeting(response: Home.GetGreeting.Response) {
-        view.event = .view(.greeting(response.greeting))
+        Task { @MainActor in
+            view.event = .view(.greeting(response.greeting))
+        }
     }
     
     func presentSavedCities(response: Home.GetSavedCities.Response) {
-        view.event = .view(.savedCities(response.savedCities))
+        Task { @MainActor in
+            view.event = .view(.savedCities(response.savedCities))
+        }
     }
     
     func presentCities(response: Home.SearchCities.Response) {
-        view.event = .view(.cities(response.cities))
+        Task { @MainActor in
+            view.event = .view(.cities(response.cities))
+        }
     }
 }
