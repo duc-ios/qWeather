@@ -15,19 +15,9 @@ struct AppView: View {
 
     var body: some View {
         NavigationStack(path: $router.path) {
-            ProgressView().scaleEffect(.init(width: 2, height: 2))
-                .navigationDestination(for: Route.self) {
-                    switch $0 {
-                    case .landing:
-                        LandingView().configured()
-                    case .onboarding:
-                        OnboardingView()
-                    case .home:
-                        HomeView().configured()
-                    case .detail(let city):
-                        DetailView().configured(city: city)
-                    }
-                }
+            ProgressView()
+                .scaleEffect(.init(width: 2, height: 2))
+                .navigationDestination(for: Route.self) { $0.destination }
                 .onAppear {
                     if userSettings.isLoaded {
                         if userSettings.isOnboarded {
