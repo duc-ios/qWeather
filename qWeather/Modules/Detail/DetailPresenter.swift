@@ -24,18 +24,26 @@ class DetailPresenter {
 
 extension DetailPresenter: DetailPresentationLogic {
     func presentIsLoading(isLoading: Bool) {
-        view.event = .view(.loading(isLoading))
+        Task { @MainActor in
+            view.event = .view(.loading(isLoading))
+        }
     }
     
     func presentAlert(response: Detail.ShowAlert.Response) {
-        view.event = .view(.alert(title: response.title, message: response.message))
+        Task { @MainActor in
+            view.event = .view(.alert(title: response.title, message: response.message))
+        }
     }
 
     func presentError(response: Detail.ShowError.Response) {
-        view.event = .view(.error(response.error))
+        Task { @MainActor in
+            view.event = .view(.error(response.error))
+        }
     }
     
     func presentCurrentWeather(response: Detail.GetCurrentWeather.Response) {
-        view.event = .view(.currentWeather(response.weather))
+        Task { @MainActor in
+            view.event = .view(.currentWeather(response.weather))
+        }
     }
 }
