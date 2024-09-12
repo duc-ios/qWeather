@@ -38,7 +38,8 @@ struct PageControl: View {
                     selectedIndex = index
                 }
             }
-        }.animation(.spring(), value: UUID())
+        }
+        .animation(.spring(), value: selectedIndex)
     }
 }
 
