@@ -39,9 +39,12 @@ struct DetailView: View {
             if store.isLoading {
                 ProgressView().tint(.white).scaleEffect(.init(width: 2, height: 2))
             } else {
-                KFImage(store.icon)
-                    .placeholder { _ in ProgressView().tint(.white) }
-                    .frame(width: 100, height: 100)
+                CachedAsyncImage(url: store.icon, content: {
+                    $0.resizable().aspectRatio(contentMode: .fit)
+                }, placeholder: {
+                    ProgressView().tint(.white)
+                })
+                .frame(width: 150, height: 150)
                 VStack {
                     Text(Date.now, format: .dateTime).font(.callout)
                     Text(store.name).font(.title)
