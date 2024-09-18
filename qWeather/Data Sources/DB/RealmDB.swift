@@ -39,7 +39,7 @@ struct RealmDB {
         let realm = try Realm(configuration: configuration)
         try realm.write {
             for item in items {
-                realm.add(item)
+                realm.add(item, update: .modified)
             }
         }
     }

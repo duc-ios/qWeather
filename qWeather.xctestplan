@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "48B4F670-9AFE-4C02-9ED5-2F32C02F5DFF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:qWeather.xcodeproj",
+      "identifier" : "89C83B8F2C7F98E300942BD4",
+      "name" : "qWeather"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:qWeather.xcodeproj",
+        "identifier" : "89C83B9F2C7F98E400942BD4",
+        "name" : "qWeatherTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:qWeather.xcodeproj",
+        "identifier" : "89C83BA92C7F98E400942BD4",
+        "name" : "qWeatherUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
