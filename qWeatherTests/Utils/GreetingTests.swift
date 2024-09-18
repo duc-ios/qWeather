@@ -5,21 +5,22 @@
 //  Created by Duc on 29/8/24.
 //
 
+import Foundation
 @testable import qWeather
-import XCTest
+import Testing
 
-final class GreetingTests: XCTestCase {
+final class GreetingTests {
     var greeting: Greeting!
 
-    override func setUpWithError() throws {
+    init() {
         greeting = Greeting()
     }
 
-    override func tearDownWithError() throws {
+    deinit {
         greeting = nil
     }
 
-    func testMorning() throws {
+    @Test func morning() throws {
         // given
         let date = Calendar.current.date(from: DateComponents(hour: 0))!
 
@@ -27,10 +28,10 @@ final class GreetingTests: XCTestCase {
         let result = greeting.text(date: date)
 
         // then
-        XCTAssertEqual(result, "Good Morning!")
+        #expect(result == "Good Morning!")
     }
 
-    func testAfternoon() throws {
+    @Test func afternoon() throws {
         // given
         let date = Calendar.current.date(from: DateComponents(hour: 12))!
 
@@ -38,10 +39,10 @@ final class GreetingTests: XCTestCase {
         let result = greeting.text(date: date)
 
         // then
-        XCTAssertEqual(result, "Good Afternoon!")
+        #expect(result == "Good Afternoon!")
     }
 
-    func testNight() throws {
+    @Test func night() throws {
         // given
         let date = Calendar.current.date(from: DateComponents(hour: 17))!
 
@@ -49,6 +50,6 @@ final class GreetingTests: XCTestCase {
         let result = greeting.text(date: date)
 
         // then
-        XCTAssertEqual(result, "Good Evening!")
+        #expect(result == "Good Evening!")
     }
 }

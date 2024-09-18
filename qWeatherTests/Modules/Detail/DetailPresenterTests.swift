@@ -8,54 +8,54 @@
 import Combine
 import Foundation
 @testable import qWeather
-import XCTest
+import Testing
+import UIKit
 
 // MARK: - DetailPresenterTests
 
-final class DetailPresenterTests: XCTestCase {
+final class DetailPresenterTests {
     private var sut: DetailPresenter!
     private var view: DetailViewMock!
 
-    override func setUp() {
-        super.setUp()
-
+    init() {
         UIView.setAnimationsEnabled(false)
 
         view = DetailViewMock()
         sut = DetailPresenter(view: view)
     }
 
-    override func tearDown() {
+    deinit {
         sut = nil
+        view = nil
 
         UIView.setAnimationsEnabled(true)
-
-        super.tearDown()
     }
 
-    func testGetGreetings() {
+    @Test func getCurrentWeather() async throws {
         // Given
         let response = Detail.GetCurrentWeather.Response(weather: dummyWeather)
 
         // When
         sut.presentCurrentWeather(response: response)
+        try await Task.sleep(nanoseconds: 100_000_000)
 
         // Then
-        XCTAssertEqual(view.name, dummyWeather.name)
-        XCTAssertEqual(view.temp, dummyWeather.main.temp)
+        #expect(view.name == dummyWeather.name)
+        #expect(view.temp == dummyWeather.main.temp)
     }
 
-    func testDisplayError() {
+    @Test func displayError() async throws {
         // Given
         let error = AppError.unexpected
 
         // When
         sut.presentError(response: .init(error: error))
+        try await Task.sleep(nanoseconds: 100_000_000)
 
         // Then
-        XCTAssertEqual(view.alertTitle, error.title)
-        XCTAssertEqual(view.alertMessage, error.message)
-        XCTAssertEqual(view.displayAlert, true)
+        #expect(view.alertTitle == error.title)
+        #expect(view.alertMessage == error.message)
+        #expect(view.displayAlert == true)
     }
 }
 

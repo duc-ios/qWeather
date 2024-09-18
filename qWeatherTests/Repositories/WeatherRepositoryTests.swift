@@ -7,40 +7,27 @@
 
 import Foundation
 @testable import qWeather
-import XCTest
+import Testing
 
-final class WeatherRepositoryTests: XCTestCase {
+final class WeatherRepositoryTests {
     private var sut: WeatherRepository!
 
-    override func setUp() {
-        super.setUp()
-
+    init() {
         sut = WeatherRepositoryImp()
     }
 
-    override func tearDown() {
+    deinit {
         sut = nil
-
-        super.tearDown()
     }
 
-    func testGetCurrentWeather() {
+    @Test func getCurrentWeather() async throws {
         // given
         let lat = 10.75
         let lon = 106.6667
-        let promise = expectation(description: "Current Weather Received")
 
         // when
-        Task {
-            do {
-                let weather = try await sut.getCurrentWeather(lat: lat, lon: lon)
-                // then
-                XCTAssertEqual(weather.coord, CoordModel(lon: lon, lat: lat))
-            } catch {
-                XCTAssertTrue(false, error.localizedDescription)
-            }
-            promise.fulfill()
-        }
-        wait(for: [promise], timeout: 5)
+        let weather = try await sut.getCurrentWeather(lat: lat, lon: lon)
+        // then
+        #expect(weather.coord == CoordModel(lon: lon, lat: lat))
     }
 }

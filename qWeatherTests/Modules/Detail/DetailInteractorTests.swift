@@ -8,18 +8,17 @@
 import Foundation
 @testable import qWeather
 import SwiftData
-import XCTest
+import Testing
+import UIKit
 
 // MARK: - DetailInteractorTests
 
-final class DetailInteractorTests: XCTestCase {
+final class DetailInteractorTests {
     private var sut: DetailBusinessLogic!
     private var presenter: DetailPresenterMock!
     private var repository: WeatherRepository!
 
-    @MainActor override func setUp() {
-        super.setUp()
-
+    init() {
         UIView.setAnimationsEnabled(false)
 
         presenter = DetailPresenterMock()
@@ -31,32 +30,26 @@ final class DetailInteractorTests: XCTestCase {
         )
     }
 
-    override func tearDown() {
+    deinit {
         sut = nil
         presenter = nil
         repository = nil
 
         UIView.setAnimationsEnabled(true)
-
-        super.tearDown()
     }
 
-    func testGetCurrentWeather() {
+    @Test func getCurrentWeather() async throws {
         // Given
         let request = Detail.GetCurrentWeather.Request(city: .init(lat: 10.75, lon: 106.6667))
-        let promise = expectation(description: "Present Current Weather Called")
 
         // When
         sut.getCurrentWeather(request: request)
-        XCTAssertTrue(presenter.isLoading)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
-            guard let self else { return }
-            // Then
-            XCTAssertTrue(presenter.presentCurrentWeatherCalled)
-            XCTAssertFalse(presenter.isLoading)
-            promise.fulfill()
-        }
-        wait(for: [promise], timeout: 5)
+        #expect(presenter.isLoading == true)
+        try await Task.sleep(nanoseconds: 100_000_000)
+
+        // Then
+        #expect(presenter.presentCurrentWeatherCalled == true)
+        #expect(presenter.isLoading == false)
     }
 }
 

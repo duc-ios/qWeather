@@ -8,18 +8,17 @@
 import Foundation
 @testable import qWeather
 import SwiftData
-import XCTest
+import Testing
+import UIKit
 
 // MARK: - HomeInteractorTests
 
-final class HomeInteractorTests: XCTestCase {
+final class HomeInteractorTests {
     private var sut: HomeBusinessLogic!
     private var presenter: HomePresenterMock!
     private var repository: CityRepository!
 
-    @MainActor override func setUp() {
-        super.setUp()
-
+    init() {
         UIView.setAnimationsEnabled(false)
 
         presenter = HomePresenterMock()
@@ -31,17 +30,15 @@ final class HomeInteractorTests: XCTestCase {
         )
     }
 
-    override func tearDown() {
+    deinit {
         sut = nil
         presenter = nil
         repository = nil
 
         UIView.setAnimationsEnabled(true)
-
-        super.tearDown()
     }
 
-    func testGetGreeting() {
+    @Test func getGreeting() {
         // Given
         let dateComponents = DateComponents(hour: 12)
         let date = Calendar.current.date(from: dateComponents)
@@ -51,10 +48,10 @@ final class HomeInteractorTests: XCTestCase {
         sut.getGreeting(request: request)
 
         // Then
-        XCTAssertEqual(presenter.greeting, "Good Afternoon!")
+        #expect(presenter.greeting == "Good Afternoon!")
     }
 
-    func testSearchCities() {
+    @Test func searchCities() {
         // Given
         let request = Home.SearchCities.Request(keyword: "Ho Chi Minh")
 
@@ -62,7 +59,7 @@ final class HomeInteractorTests: XCTestCase {
         sut.searchCities(request: request)
 
         // Then
-        XCTAssertTrue(presenter.presentCitiesCalled)
+        #expect(presenter.presentCitiesCalled == true)
     }
 }
 

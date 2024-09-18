@@ -8,32 +8,30 @@
 import Combine
 import Foundation
 @testable import qWeather
-import XCTest
+import Testing
+import UIKit
 
 // MARK: - HomePresenterTests
 
-final class HomePresenterTests: XCTestCase {
+final class HomePresenterTests {
     private var sut: HomePresenter!
     private var view: HomeViewMock!
 
-    override func setUp() {
-        super.setUp()
-
+    init() {
         UIView.setAnimationsEnabled(false)
 
         view = HomeViewMock()
         sut = HomePresenter(view: view)
     }
 
-    override func tearDown() {
+    deinit {
         sut = nil
+        view = nil
 
         UIView.setAnimationsEnabled(true)
-
-        super.tearDown()
     }
 
-    func testGetGreetings() {
+    @Test func getGreetings() {
         // Given
         let response = Home.GetGreeting.Response(greeting: "Good Morning!")
 
@@ -41,20 +39,24 @@ final class HomePresenterTests: XCTestCase {
         sut.presentGreeting(response: response)
 
         // Then
-        XCTAssertEqual(view.greeting, "Good Morning!")
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            #expect(view.greeting == "Good Morning!")
+        }
     }
 
-    func testDisplayError() {
+    @Test func displayError() async throws {
         // Given
         let error = AppError.unexpected
 
         // When
         sut.presentError(response: .init(error: error))
+        try await Task.sleep(nanoseconds: 100_000_000)
 
         // Then
-        XCTAssertEqual(view.alertTitle, error.title)
-        XCTAssertEqual(view.alertMessage, error.message)
-        XCTAssertEqual(view.displayAlert, true)
+        #expect(view.alertTitle == error.title)
+        #expect(view.alertMessage == error.message)
+        #expect(view.displayAlert == true)
     }
 }
 
