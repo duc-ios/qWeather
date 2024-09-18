@@ -5,7 +5,7 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Kingfisher
+import Routing
 import SwiftUI
 
 // MARK: - DetailEvent
@@ -32,7 +32,7 @@ protocol DetailDisplayLogic {
 struct DetailView: View {
     var interactor: DetailBusinessLogic!
     @ObservedObject var store = DetailDataStore()
-    @EnvironmentObject var router: Router
+    @EnvironmentObject var router: Router<Route>
 
     var body: some View {
         VStack {
@@ -97,7 +97,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
-                    router.pop(to: .home)
+                    router.dismiss()
                 }, label: {
                     Image(systemName: "chevron.left")
                         .font(.body.weight(.semibold))
@@ -114,14 +114,14 @@ struct DetailView: View {
 
 #if DEBUG
 #Preview {
-    NavigationStack {
+    RoutingView(Route.self) { router in
         DetailView()
             .configured(city: .init(
                 name: "Ho Chi Minh",
                 lat: 10.75,
                 lon: 106.6667
             ))
-            .environmentObject(Router())
+            .environmentObject(router)
     }
 }
 #endif

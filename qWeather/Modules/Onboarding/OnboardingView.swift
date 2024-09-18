@@ -5,7 +5,10 @@
 //  Created by Duc on 29/8/24.
 //
 
+import Routing
 import SwiftUI
+
+// MARK: - OnboardingContentView
 
 struct OnboardingContentView: View {
     let title: String
@@ -32,10 +35,12 @@ struct OnboardingContentView: View {
     }
 }
 
+// MARK: - OnboardingView
+
 struct OnboardingView: View {
-    @EnvironmentObject var router: Router
     @EnvironmentObject var userSettings: UserSettings
     @State private var selectedIndex = 0
+    @EnvironmentObject var router: Router<Route>
 
     var body: some View {
         return VStack {
@@ -67,7 +72,9 @@ struct OnboardingView: View {
 
             Button(action: {
                 userSettings.isOnboarded = true
-                router.pop(to: .home)
+                DispatchQueue.main.async {
+                    router.replace(.home)
+                }
             }, label: {
                 Text(L10n.Onboarding.getStarted)
             })
@@ -85,7 +92,9 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
-        .environmentObject(Router())
-        .environmentObject(UserSettings())
+    RoutingView(Route.self) { router in
+        OnboardingView()
+            .environmentObject(UserSettings())
+            .environmentObject(router)
+    }
 }
