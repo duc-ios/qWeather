@@ -16,6 +16,7 @@ final class LandingDataStore: BaseDataStore<LandingEvent>, LandingDisplayLogic {
             .receive(on: DispatchQueue.main)
             .compactMap {
                 guard case .view(let event) = $0 else { return nil }
+                dump(event)
                 return event
             }
             .sink(receiveValue: reduce)

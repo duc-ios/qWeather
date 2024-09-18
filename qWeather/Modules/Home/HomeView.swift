@@ -5,6 +5,7 @@
 //  Created by Duc on 29/8/24.
 //
 
+import Routing
 import SwiftUI
 
 // MARK: - HomeEvent
@@ -34,8 +35,8 @@ struct HomeView: View {
     var interactor: HomeBusinessLogic!
 
     @ObservedObject var store = HomeDataStore()
-    @EnvironmentObject var router: Router
     @StateObject var keyword = DebounceState(initialValue: "")
+    @EnvironmentObject var router: Router<Route>
 
     var body: some View {
         Group {
@@ -47,7 +48,7 @@ struct HomeView: View {
                         ForEach(store.cities) { city in
                             CityCard(city: city,
                                      action: {
-                                         router.show(.detail(city))
+                                         router.routeTo(.detail(city))
                                      },
                                      saveAction: {
                                          interactor.updateCity(request: .init(
@@ -66,7 +67,7 @@ struct HomeView: View {
                         ForEach(store.savedCities) { city in
                             CityCard(city: city,
                                      action: {
-                                         router.show(.detail(city))
+                                         router.routeTo(.detail(city))
                                      },
                                      saveAction: {
                                          interactor.updateCity(request: .init(
@@ -100,6 +101,10 @@ struct HomeView: View {
 
 #if DEBUG
 #Preview {
-    HomeView().configured()
+    RoutingView(Route.self) { router in
+        HomeView()
+            .configured()
+            .environmentObject(router)
+    }
 }
 #endif

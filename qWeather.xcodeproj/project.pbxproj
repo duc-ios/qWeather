@@ -25,6 +25,7 @@
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
 		896156362C9A9BF00067AFA7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896156352C9A9BF00067AFA7 /* UINavigationController+Extensions.swift */; };
 		8961563D2C9AC9630067AFA7 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961563C2C9AC9630067AFA7 /* CachedAsyncImage.swift */; };
+		896156402C9ACB300067AFA7 /* Routing in Frameworks */ = {isa = PBXBuildFile; productRef = 8961563F2C9ACB300067AFA7 /* Routing */; };
 		896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
 		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
@@ -41,14 +42,12 @@
 		899072792C83A54D00BF43C2 /* DetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072782C83A54D00BF43C2 /* DetailInteractorTests.swift */; };
 		8990727B2C83A55500BF43C2 /* DetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8990727A2C83A55500BF43C2 /* DetailPresenterTests.swift */; };
 		89C83B942C7F98E300942BD4 /* qWeatherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B932C7F98E300942BD4 /* qWeatherApp.swift */; };
-		89C83B962C7F98E300942BD4 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83B952C7F98E300942BD4 /* AppView.swift */; };
 		89C83B982C7F98E400942BD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B972C7F98E400942BD4 /* Assets.xcassets */; };
 		89C83B9B2C7F98E400942BD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C83B9A2C7F98E400942BD4 /* Preview Assets.xcassets */; };
 		89C83BA52C7F98E400942BD4 /* qWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BA42C7F98E400942BD4 /* qWeatherTests.swift */; };
 		89C83BAF2C7F98E400942BD4 /* qWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BAE2C7F98E400942BD4 /* qWeatherUITests.swift */; };
 		89C83BB12C7F98E400942BD4 /* qWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BB02C7F98E400942BD4 /* qWeatherUITestsLaunchTests.swift */; };
 		89C83BC02C7F991400942BD4 /* city.list.min.json in Resources */ = {isa = PBXBuildFile; fileRef = 89C83BBF2C7F991400942BD4 /* city.list.min.json */; };
-		89C83BC42C7F995300942BD4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC22C7F995300942BD4 /* Router.swift */; };
 		89C83BC52C7F995300942BD4 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC32C7F995300942BD4 /* Route.swift */; };
 		89C83BC72C7F996300942BD4 /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BC62C7F996300942BD4 /* Greeting.swift */; };
 		89C83BCE2C7F99D800942BD4 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */; };
@@ -141,7 +140,6 @@
 		8990727A2C83A55500BF43C2 /* DetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenterTests.swift; sourceTree = "<group>"; };
 		89C83B902C7F98E300942BD4 /* qWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C83B932C7F98E300942BD4 /* qWeatherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherApp.swift; sourceTree = "<group>"; };
-		89C83B952C7F98E300942BD4 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		89C83B972C7F98E400942BD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C83B9A2C7F98E400942BD4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		89C83BA02C7F98E400942BD4 /* qWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = qWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +148,6 @@
 		89C83BAE2C7F98E400942BD4 /* qWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherUITests.swift; sourceTree = "<group>"; };
 		89C83BB02C7F98E400942BD4 /* qWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89C83BBF2C7F991400942BD4 /* city.list.min.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.min.json; sourceTree = "<group>"; };
-		89C83BC22C7F995300942BD4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		89C83BC32C7F995300942BD4 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		89C83BC62C7F996300942BD4 /* Greeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Greeting.swift; sourceTree = "<group>"; };
 		89C83BCC2C7F99D800942BD4 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -185,6 +182,7 @@
 				899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */,
 				892FF6A82C7FB5FC004FBBEA /* SwiftyJSON in Frameworks */,
 				89C83C092C7FA1C000942BD4 /* Moya in Frameworks */,
+				896156402C9ACB300067AFA7 /* Routing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				89C83B932C7F98E300942BD4 /* qWeatherApp.swift */,
-				89C83B952C7F98E300942BD4 /* AppView.swift */,
+				89C83BC32C7F995300942BD4 /* Route.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -377,8 +375,6 @@
 				892FF6A92C7FB655004FBBEA /* ObjectAssociation.swift */,
 				89C83BEB2C7F9A6600942BD4 /* UserSettings.swift */,
 				89C83BC62C7F996300942BD4 /* Greeting.swift */,
-				89C83BC32C7F995300942BD4 /* Route.swift */,
-				89C83BC22C7F995300942BD4 /* Router.swift */,
 				89C83C1D2C7FB03B00942BD4 /* Searchable_iOS16.swift */,
 				8990726A2C83865500BF43C2 /* VerbosePlugin.swift */,
 				896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */,
@@ -422,6 +418,7 @@
 				89C83BD12C7F99E800942BD4 /* String+Extensions.swift */,
 				899072602C801ECC00BF43C2 /* Moya+Concurency.swift */,
 				899072622C80233B00BF43C2 /* Num+Extensions.swift */,
+				896156352C9A9BF00067AFA7 /* UINavigationController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -539,6 +536,7 @@
 				89C83C082C7FA1C000942BD4 /* Moya */,
 				892FF6A72C7FB5FC004FBBEA /* SwiftyJSON */,
 				899072542C7FFA0B00BF43C2 /* RealmSwift */,
+				8961563F2C9ACB300067AFA7 /* Routing */,
 			);
 			productName = qWeather;
 			productReference = 89C83B902C7F98E300942BD4 /* qWeather.app */;
@@ -616,6 +614,7 @@
 				89C83C022C7F9DD800942BD4 /* XCRemoteSwiftPackageReference "Moya" */,
 				892FF6A62C7FB5FC004FBBEA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */,
 			);
 			productRefGroup = 89C83B912C7F98E300942BD4 /* Products */;
 			projectDirPath = "";
@@ -688,11 +687,10 @@
 				89C83BE02C7F9A3E00942BD4 /* PageControl.swift in Sources */,
 				892FF6AA2C7FB655004FBBEA /* ObjectAssociation.swift in Sources */,
 				899072692C803E1400BF43C2 /* OpenWeatherMapService.swift in Sources */,
-				89C83B962C7F98E300942BD4 /* AppView.swift in Sources */,
 				89C83BC52C7F995300942BD4 /* Route.swift in Sources */,
 				89C83BD32C7F99E800942BD4 /* Color+Extensions.swift in Sources */,
-				89C83BC42C7F995300942BD4 /* Router.swift in Sources */,
 				89C83BE72C7F9A4A00942BD4 /* CityModel.swift in Sources */,
+				896156362C9A9BF00067AFA7 /* UINavigationController+Extensions.swift in Sources */,
 				89C83BEC2C7F9A6600942BD4 /* UserSettings.swift in Sources */,
 				89C83BC72C7F996300942BD4 /* Greeting.swift in Sources */,
 				89C83BE22C7F9A3E00942BD4 /* Constants.swift in Sources */,
@@ -1067,6 +1065,14 @@
 				minimumVersion = 5.0.2;
 			};
 		};
+		8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/duc-ios/Routing";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1090,6 +1096,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 892FF6A62C7FB5FC004FBBEA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		8961563F2C9ACB300067AFA7 /* Routing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */;
+			productName = Routing;
 		};
 		899072542C7FFA0B00BF43C2 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;

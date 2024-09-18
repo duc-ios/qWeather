@@ -5,6 +5,7 @@
 //  Created by Duc on 29/8/24.
 //
 
+import Routing
 import SwiftUI
 
 // MARK: - LandingEvent
@@ -35,7 +36,7 @@ struct LandingView: View {
     var interactor: LandingBusinessLogic!
     @ObservedObject var store = LandingDataStore()
     @EnvironmentObject var userSettings: UserSettings
-    @EnvironmentObject var router: Router
+    @EnvironmentObject var router: Router<Route>
 
     var body: some View {
         VStack {
@@ -58,9 +59,9 @@ struct LandingView: View {
                 case .homeOrOnboarding:
                     userSettings.isLoaded = true
                     if userSettings.isOnboarded == true {
-                        router.pop(to: .home)
+                        router.replace(.home)
                     } else {
-                        router.pop(to: .onboarding)
+                        router.replace(.onboarding)
                     }
             }
         }
@@ -69,9 +70,11 @@ struct LandingView: View {
 
 #if DEBUG
 #Preview {
-    LandingView()
-        .configured()
-        .environmentObject(Router())
-        .environmentObject(UserSettings())
+    RoutingView(Route.self) { router in
+        LandingView()
+            .configured()
+            .environmentObject(UserSettings())
+            .environmentObject(router)
+    }
 }
 #endif
