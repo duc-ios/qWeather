@@ -8,14 +8,13 @@
 import Foundation
 
 extension DetailView {
-    func configured(
+    static func configured(
         city: CityModel
     ) -> DetailView {
-        var view = self
-        view.store.city = city
-        let presenter = DetailPresenter(view: view.store)
+        let store = DetailDataStore(city: city)
+        let presenter = DetailPresenter(view: store)
         let interactor = DetailInteractor(presenter: presenter, repository: WeatherRepositoryImp())
-        view.interactor = interactor
+        let view = DetailView(interactor: interactor, store: store)
         return view
     }
 }

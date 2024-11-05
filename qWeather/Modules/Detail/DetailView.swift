@@ -5,7 +5,6 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Routing
 import SwiftUI
 
 // MARK: - DetailEvent
@@ -30,9 +29,9 @@ protocol DetailDisplayLogic {
 // MARK: - DetailView
 
 struct DetailView: View {
-    var interactor: DetailBusinessLogic!
-    @ObservedObject var store = DetailDataStore()
-    @EnvironmentObject var router: Router<Route>
+    let interactor: DetailBusinessLogic
+    @StateObject var store: DetailDataStore
+    @EnvironmentObject var router: Router
 
     var body: some View {
         VStack {
@@ -85,7 +84,7 @@ struct DetailView: View {
         .foregroundStyle(.white)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.gradient)
+        .modifier(BackgroundGradientModifier())
         .alert(store.alertTitle,
                isPresented: $store.displayAlert,
                actions: { Button(L10n.ok) {} },
@@ -97,7 +96,7 @@ struct DetailView: View {
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
-                    router.dismiss()
+                    router.path.removeLast()
                 }, label: {
                     Image(systemName: "chevron.left")
                         .font(.body.weight(.semibold))
@@ -114,14 +113,14 @@ struct DetailView: View {
 
 #if DEBUG
 #Preview {
-    RoutingView(Route.self) { router in
-        DetailView()
+    NavigationView {
+        DetailView
             .configured(city: .init(
                 name: "Ho Chi Minh",
                 lat: 10.75,
                 lon: 106.6667
             ))
-            .environmentObject(router)
+            .environmentObject(Router())
     }
 }
 #endif

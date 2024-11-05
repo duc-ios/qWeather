@@ -5,7 +5,6 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Routing
 import SwiftUI
 
 // MARK: - OnboardingContentView
@@ -40,7 +39,7 @@ struct OnboardingContentView: View {
 struct OnboardingView: View {
     @EnvironmentObject var userSettings: UserSettings
     @State private var selectedIndex = 0
-    @EnvironmentObject var router: Router<Route>
+    @EnvironmentObject var router: Router
 
     var body: some View {
         return VStack {
@@ -80,21 +79,21 @@ struct OnboardingView: View {
             })
             .padding()
             .font(.title3.weight(.semibold))
-            .foregroundStyle(Color.gradient)
+            .modifier(ForegroundGradientModifier())
             .background(.white)
             .clipShape(Capsule())
             .padding()
         }
         .frame(maxHeight: .infinity)
-        .background(Color.gradient)
+        .modifier(BackgroundGradientModifier())
         .navigationBarBackButtonHidden()
     }
 }
 
 #Preview {
-    RoutingView(Route.self) { router in
+    NavigationView {
         OnboardingView()
             .environmentObject(UserSettings())
-            .environmentObject(router)
+            .environmentObject(Router())
     }
 }

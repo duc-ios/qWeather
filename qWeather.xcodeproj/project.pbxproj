@@ -25,7 +25,6 @@
 		892FF6D32C7FF5CA004FBBEA /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892FF6CD2C7FF5CA004FBBEA /* DetailConfigurator.swift */; };
 		896156362C9A9BF00067AFA7 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896156352C9A9BF00067AFA7 /* UINavigationController+Extensions.swift */; };
 		8961563D2C9AC9630067AFA7 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961563C2C9AC9630067AFA7 /* CachedAsyncImage.swift */; };
-		896156402C9ACB300067AFA7 /* Routing in Frameworks */ = {isa = PBXBuildFile; productRef = 8961563F2C9ACB300067AFA7 /* Routing */; };
 		896C18AB2C84F85F00BFF3AE /* DebouncedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896C18AA2C84F85F00BFF3AE /* DebouncedState.swift */; };
 		899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 899072542C7FFA0B00BF43C2 /* RealmSwift */; };
 		899072572C80035F00BF43C2 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899072562C80035F00BF43C2 /* WeatherModel.swift */; };
@@ -73,6 +72,9 @@
 		89C83C202C7FB04A00942BD4 /* Searchable_iOS16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83C1D2C7FB03B00942BD4 /* Searchable_iOS16.swift */; };
 		89C83C222C7FB06400942BD4 /* GreetingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83BD62C7F9A0400942BD4 /* GreetingTests.swift */; };
 		89C83C252C7FB11800942BD4 /* BaseDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C83C242C7FB11800942BD4 /* BaseDataStore.swift */; };
+		89EE50562CDB27AF00E941F5 /* ForegroundGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE50552CDB27AF00E941F5 /* ForegroundGradientModifier.swift */; };
+		89EE50582CDB27F400E941F5 /* BackgroundGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE50572CDB27F400E941F5 /* BackgroundGradientModifier.swift */; };
+		89F0F1AF2CDA81B200422281 /* NavigationStackBackport in Frameworks */ = {isa = PBXBuildFile; productRef = 89F0F1AE2CDA81B200422281 /* NavigationStackBackport */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		89C83C192C7FAC6500942BD4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		89C83C1D2C7FB03B00942BD4 /* Searchable_iOS16.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Searchable_iOS16.swift; sourceTree = "<group>"; };
 		89C83C242C7FB11800942BD4 /* BaseDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDataStore.swift; sourceTree = "<group>"; };
+		89EE50552CDB27AF00E941F5 /* ForegroundGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundGradientModifier.swift; sourceTree = "<group>"; };
+		89EE50572CDB27F400E941F5 /* BackgroundGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGradientModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +185,8 @@
 			files = (
 				899072552C7FFA0B00BF43C2 /* RealmSwift in Frameworks */,
 				892FF6A82C7FB5FC004FBBEA /* SwiftyJSON in Frameworks */,
+				89F0F1AF2CDA81B200422281 /* NavigationStackBackport in Frameworks */,
 				89C83C092C7FA1C000942BD4 /* Moya in Frameworks */,
-				896156402C9ACB300067AFA7 /* Routing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +439,7 @@
 		89C83BDE2C7F9A3E00942BD4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				89EE50542CDB26E100E941F5 /* Modifiers */,
 				89C83C232C7FB11300942BD4 /* Base */,
 				89C83BDC2C7F9A3E00942BD4 /* Views */,
 				89C83BDD2C7F9A3E00942BD4 /* Constants.swift */,
@@ -515,6 +520,15 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		89EE50542CDB26E100E941F5 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				89EE50552CDB27AF00E941F5 /* ForegroundGradientModifier.swift */,
+				89EE50572CDB27F400E941F5 /* BackgroundGradientModifier.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -536,7 +550,7 @@
 				89C83C082C7FA1C000942BD4 /* Moya */,
 				892FF6A72C7FB5FC004FBBEA /* SwiftyJSON */,
 				899072542C7FFA0B00BF43C2 /* RealmSwift */,
-				8961563F2C9ACB300067AFA7 /* Routing */,
+				89F0F1AE2CDA81B200422281 /* NavigationStackBackport */,
 			);
 			productName = qWeather;
 			productReference = 89C83B902C7F98E300942BD4 /* qWeather.app */;
@@ -586,7 +600,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					89C83B8F2C7F98E300942BD4 = {
 						CreatedOnToolsVersion = 15.4;
@@ -614,7 +628,7 @@
 				89C83C022C7F9DD800942BD4 /* XCRemoteSwiftPackageReference "Moya" */,
 				892FF6A62C7FB5FC004FBBEA /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */,
+				89F0F1AD2CDA81B200422281 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */,
 			);
 			productRefGroup = 89C83B912C7F98E300942BD4 /* Products */;
 			projectDirPath = "";
@@ -670,6 +684,7 @@
 				89C83BF52C7F9A8900942BD4 /* HomeDataStore.swift in Sources */,
 				89C83C1C2C7FAC6500942BD4 /* Strings.swift in Sources */,
 				8990726B2C83865500BF43C2 /* VerbosePlugin.swift in Sources */,
+				89EE50582CDB27F400E941F5 /* BackgroundGradientModifier.swift in Sources */,
 				89C83BF62C7F9A8900942BD4 /* HomeInteractor.swift in Sources */,
 				892FF69C2C7FB40A004FBBEA /* LandingPresenter.swift in Sources */,
 				892FF69D2C7FB40A004FBBEA /* LandingDataStore.swift in Sources */,
@@ -698,6 +713,7 @@
 				89C83C252C7FB11800942BD4 /* BaseDataStore.swift in Sources */,
 				892FF6CE2C7FF5CA004FBBEA /* DetailPresenter.swift in Sources */,
 				892FF6CF2C7FF5CA004FBBEA /* DetailDataStore.swift in Sources */,
+				89EE50562CDB27AF00E941F5 /* ForegroundGradientModifier.swift in Sources */,
 				892FF6D02C7FF5CA004FBBEA /* DetailInteractor.swift in Sources */,
 				892FF6D12C7FF5CA004FBBEA /* DetailView.swift in Sources */,
 				899072632C80233B00BF43C2 /* Num+Extensions.swift in Sources */,
@@ -897,6 +913,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -926,6 +943,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -942,13 +960,12 @@
 		89C83BB82C7F98E400942BD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R779U6F348;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.duc.qWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -962,13 +979,12 @@
 		89C83BB92C7F98E400942BD4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R779U6F348;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.duc.qWeatherTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -982,11 +998,11 @@
 		89C83BBB2C7F98E400942BD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R779U6F348;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.duc.qWeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1000,11 +1016,11 @@
 		89C83BBC2C7F98E400942BD4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R779U6F348;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ios.duc.qWeatherUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1065,14 +1081,6 @@
 				minimumVersion = 5.0.2;
 			};
 		};
-		8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/duc-ios/Routing";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		899072532C7FFA0B00BF43C2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -1089,6 +1097,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		89F0F1AD2CDA81B200422281 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lm/navigation-stack-backport";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1096,11 +1112,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 892FF6A62C7FB5FC004FBBEA /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
-		};
-		8961563F2C9ACB300067AFA7 /* Routing */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8961563E2C9ACB300067AFA7 /* XCRemoteSwiftPackageReference "Routing" */;
-			productName = Routing;
 		};
 		899072542C7FFA0B00BF43C2 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1111,6 +1122,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89C83C022C7F9DD800942BD4 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		89F0F1AE2CDA81B200422281 /* NavigationStackBackport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89F0F1AD2CDA81B200422281 /* XCRemoteSwiftPackageReference "navigation-stack-backport" */;
+			productName = NavigationStackBackport;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

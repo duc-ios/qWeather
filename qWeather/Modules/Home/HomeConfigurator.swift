@@ -8,12 +8,12 @@
 import Foundation
 
 extension HomeView {
-    func configured(
+    static func configured(
     ) -> HomeView {
-        var view = self
-        let presenter = HomePresenter(view: view.store)
+        let store = HomeDataStore()
+        let presenter = HomePresenter(view: store)
         let interactor = HomeInteractor(presenter: presenter, repository: CityRepositoryImp())
-        view.interactor = interactor
+        let view = HomeView(interactor: interactor, store: store)
         return view
     }
 }

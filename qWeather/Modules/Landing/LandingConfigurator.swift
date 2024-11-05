@@ -8,12 +8,12 @@
 import Foundation
 
 extension LandingView {
-    func configured(
+    static func configured(
     ) -> LandingView {
-        var view = self
-        let presenter = LandingPresenter(view: view.store)
+        let store = LandingDataStore()
+        let presenter = LandingPresenter(view: store)
         let interactor = LandingInteractor(presenter: presenter, repository: CityRepositoryImp())
-        view.interactor = interactor
+        let view = LandingView(interactor: interactor, store: store)
         return view
     }
 }

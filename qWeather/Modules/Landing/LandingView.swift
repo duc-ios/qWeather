@@ -5,7 +5,6 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Routing
 import SwiftUI
 
 // MARK: - LandingEvent
@@ -33,10 +32,10 @@ protocol LandingDisplayLogic {
 // MARK: - LandingView
 
 struct LandingView: View {
-    var interactor: LandingBusinessLogic!
-    @ObservedObject var store = LandingDataStore()
+    let interactor: LandingBusinessLogic
+    @StateObject var store: LandingDataStore
     @EnvironmentObject var userSettings: UserSettings
-    @EnvironmentObject var router: Router<Route>
+    @EnvironmentObject var router: Router
 
     var body: some View {
         VStack {
@@ -70,11 +69,11 @@ struct LandingView: View {
 
 #if DEBUG
 #Preview {
-    RoutingView(Route.self) { router in
-        LandingView()
+    NavigationView {
+        LandingView
             .configured()
             .environmentObject(UserSettings())
-            .environmentObject(router)
+            .environmentObject(Router())
     }
 }
 #endif

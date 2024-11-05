@@ -5,42 +5,48 @@
 //  Created by Duc on 29/8/24.
 //
 
-import Routing
+import NavigationStackBackport
 import SwiftUI
 
-enum Route: Routable {
+// MARK: - Route
+
+enum Route: Hashable {
     case landing,
          onboarding,
          home,
          detail(CityModel)
 
     @ViewBuilder
-    func viewToDisplay(router: Router<Route>) -> some View {
+    func destination() -> some View {
         Group {
             switch self {
             case .landing:
-                LandingView().configured()
+                LandingView.configured()
             case .onboarding:
                 OnboardingView()
             case .home:
-                HomeView().configured()
+                HomeView.configured()
             case .detail(let city):
-                DetailView().configured(city: city)
+                DetailView.configured(city: city)
             }
         }
-        .environmentObject(router)
+    }
+}
+
+// MARK: - Router
+
+class Router: ObservableObject {
+    @Published var current: Route = .landing
+    @Published var path = [Route]()
+    
+    func show(_ route: Route) {
+        path.append(route)
     }
 
-    var navigationType: NavigationType {
-        switch self {
-        case .landing:
-            return .push
-        case .onboarding:
-            return .push
-        case .home:
-            return .push
-        case .detail:
-            return .push
+    func replace(_ route: Route) {
+        if !path.isEmpty {
+            path.removeLast()
         }
+        path.append(route)
     }
 }

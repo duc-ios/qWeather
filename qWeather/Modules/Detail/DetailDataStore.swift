@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 final class DetailDataStore: BaseDataStore<DetailEvent>, DetailDisplayLogic {
-    var city: CityModel!
+    let city: CityModel
 
     @Published var icon: URL?
     @Published var name: String = ""
@@ -24,7 +24,8 @@ final class DetailDataStore: BaseDataStore<DetailEvent>, DetailDisplayLogic {
     @Published var humidity: String = ""
     @Published var visibility: String = ""
 
-    override init() {
+    init(city: CityModel) {
+        self.city = city
         super.init()
 
         $event
