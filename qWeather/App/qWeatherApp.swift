@@ -28,7 +28,7 @@ struct qWeatherApp: App {
             .environmentObject(userSettings)
         }
     }
-    
+
     var progress: some View {
         ProgressView()
             .scaleEffect(.init(width: 2, height: 2))
@@ -52,7 +52,7 @@ struct qWeatherApp: App {
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         return true
     }
 }

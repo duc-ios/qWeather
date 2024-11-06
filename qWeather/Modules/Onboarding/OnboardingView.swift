@@ -50,18 +50,21 @@ struct OnboardingView: View {
                 OnboardingContentView(
                     title: L10n.Onboarding.Title._1,
                     image: "globe",
-                    description: L10n.Onboarding.Desc._1)
-                    .tag(0)
+                    description: L10n.Onboarding.Desc._1
+                )
+                .tag(0)
                 OnboardingContentView(
                     title: L10n.Onboarding.Title._2,
                     image: "square.and.arrow.down",
-                    description: L10n.Onboarding.Desc._2)
-                    .tag(1)
+                    description: L10n.Onboarding.Desc._2
+                )
+                .tag(1)
                 OnboardingContentView(
                     title: L10n.Onboarding.Title._3,
                     image: "sun.rain",
-                    description: L10n.Onboarding.Desc._3)
-                    .tag(2)
+                    description: L10n.Onboarding.Desc._3
+                )
+                .tag(2)
             }
             .frame(height: 330)
             .tabViewStyle(.page(indexDisplayMode: .never))

@@ -22,7 +22,7 @@ final class HomeDataStore: BaseDataStore<HomeEvent>, HomeDisplayLogic {
         $event
             .receive(on: DispatchQueue.main)
             .compactMap {
-                guard case .view(let event) = $0 else { return nil }
+                guard case let .view(event) = $0 else { return nil }
                 return event
             }
             .sink(receiveValue: reduce)
@@ -31,19 +31,19 @@ final class HomeDataStore: BaseDataStore<HomeEvent>, HomeDisplayLogic {
 
     func reduce(_ event: HomeEvent.View) {
         switch event {
-        case .loading(let isLoading):
+        case let .loading(isLoading):
             self.isLoading = isLoading
-        case .alert(let title, let message):
+        case let .alert(title, message):
             alertTitle = title
             alertMessage = message
             displayAlert = true
-        case .error(let error):
+        case let .error(error):
             self.event = .view(.alert(title: error.title, message: error.message))
-        case .greeting(let greeting):
+        case let .greeting(greeting):
             self.greeting = greeting
-        case .savedCities(let cities):
+        case let .savedCities(cities):
             savedCities = cities
-        case .cities(let cities):
+        case let .cities(cities):
             self.cities = cities
         }
     }

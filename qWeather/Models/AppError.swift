@@ -56,11 +56,11 @@ enum AppError: LocalizedError, Equatable {
                 return (error as NSError).description
             }
         case let .other(code, message):
-#if DEBUG
-            return "\(code): \(message)"
-#else
-            return message
-#endif
+            #if DEBUG
+                return "\(code): \(message)"
+            #else
+                return message
+            #endif
         }
     }
 }

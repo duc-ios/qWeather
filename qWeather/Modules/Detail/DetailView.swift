@@ -112,15 +112,15 @@ struct DetailView: View {
 }
 
 #if DEBUG
-#Preview {
-    NavigationView {
-        DetailView
-            .configured(city: .init(
-                name: "Ho Chi Minh",
-                lat: 10.75,
-                lon: 106.6667
-            ))
-            .environmentObject(Router())
+    #Preview {
+        NavigationView {
+            DetailView
+                .configured(city: .init(
+                    name: "Ho Chi Minh",
+                    lat: 10.75,
+                    lon: 106.6667
+                ))
+                .environmentObject(Router())
+        }
     }
-}
 #endif

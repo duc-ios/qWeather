@@ -26,8 +26,8 @@ class CityModel: Object, Codable, Identifiable {
         country: String = "",
         lat: Double = 0,
         lon: Double = 0,
-        isSaved: Bool? = nil)
-    {
+        isSaved: Bool? = nil
+    ) {
         self.init()
         self.id = id
         self.name = name
@@ -49,13 +49,13 @@ class CityModel: Object, Codable, Identifiable {
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = try container.decode(Int.self, forKey: .id)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.state = try container.decode(String.self, forKey: .state)
-        self.country = try container.decode(String.self, forKey: .country)
+        id = try container.decode(Int.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        state = try container.decode(String.self, forKey: .state)
+        country = try container.decode(String.self, forKey: .country)
         let coord = try container.decode([String: Double].self, forKey: .coord)
-        self.lat = coord["lat"] ?? 0
-        self.lon = coord["lon"] ?? 0
+        lat = coord["lat"] ?? 0
+        lon = coord["lon"] ?? 0
     }
 
     func encode(to encoder: any Encoder) throws {
@@ -66,7 +66,7 @@ class CityModel: Object, Codable, Identifiable {
         try container.encode(country, forKey: .country)
         try container.encode([
             "lat": lat,
-            "lon": lon
+            "lon": lon,
         ], forKey: .coord)
     }
 }

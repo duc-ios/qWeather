@@ -5,8 +5,8 @@
 //  Created by Duc on 1/9/24.
 //
 
-import Moya
 import Foundation
+import Moya
 import SwiftyJSON
 
 // MARK: - VerbosePlugin
@@ -14,7 +14,7 @@ import SwiftyJSON
 struct VerbosePlugin: PluginType {
     let verbose: Bool
 
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+    func prepare(_ request: URLRequest, target _: TargetType) -> URLRequest {
         if verbose {
             logger.debug("\(request.httpMethod ?? ""): \(request.url?.absoluteString ?? "")")
             if let body = request.httpBody,
@@ -26,9 +26,9 @@ struct VerbosePlugin: PluginType {
         return request
     }
 
-    func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
+    func didReceive(_ result: Result<Response, MoyaError>, target _: TargetType) {
         switch result {
-        case .success(let body):
+        case let .success(body):
             if verbose {
                 logger.debug("RESPONSE:")
                 if let json = JSON(body.data).rawString() {

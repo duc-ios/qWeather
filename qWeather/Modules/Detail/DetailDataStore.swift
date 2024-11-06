@@ -35,17 +35,17 @@ final class DetailDataStore: BaseDataStore<DetailEvent>, DetailDisplayLogic {
     }
 
     func reduce(_ event: DetailEvent?) {
-        guard case .view(let event) = event else { return }
+        guard case let .view(event) = event else { return }
         switch event {
-        case .loading(let isLoading):
+        case let .loading(isLoading):
             self.isLoading = isLoading
-        case .alert(let title, let message):
+        case let .alert(title, message):
             alertTitle = title
             alertMessage = message
             displayAlert = true
-        case .error(let error):
+        case let .error(error):
             self.event = .view(.alert(title: error.title, message: error.message))
-        case .currentWeather(let weather):
+        case let .currentWeather(weather):
             icon = weather.weather.first?.icon
             name = weather.name
             temp = weather.main.temp

@@ -1,7 +1,7 @@
 import SwiftUI
 
-extension View {
-    public func searchable_iOS16(text: Binding<String>, isPresented: Binding<Bool>, placement: SearchFieldPlacement) -> some View {
+public extension View {
+    func searchable_iOS16(text: Binding<String>, isPresented: Binding<Bool>, placement: SearchFieldPlacement) -> some View {
         modifier(Searchable_iOS16(text: text, isPresented: isPresented, placement: placement))
     }
 }
@@ -29,7 +29,7 @@ public struct Searchable_iOS16: ViewModifier {
     @available(watchOS, unavailable)
     public func bodyModern(_ content: Content) -> some View {
         content
-        .searchable(text: $text, isPresented: $isPresented, placement: placement)
+            .searchable(text: $text, isPresented: $isPresented, placement: placement)
     }
 
     public func bodyLegacy(_ content: Content) -> some View {
@@ -48,14 +48,13 @@ struct SearchableInner_iOS16<Content: View>: View {
     var content: () -> Content
 
     init(legacyIsSearching: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
-        self._legacyIsSearching = legacyIsSearching
+        _legacyIsSearching = legacyIsSearching
         self.content = content
     }
-    
+
     var body: some View {
         content()
-        .onChange(of: environmentIsSearching) { legacyIsSearching = $0 }
-        .onAppear { legacyIsSearching = environmentIsSearching }
+            .onChange(of: environmentIsSearching) { legacyIsSearching = $0 }
+            .onAppear { legacyIsSearching = environmentIsSearching }
     }
 }
-

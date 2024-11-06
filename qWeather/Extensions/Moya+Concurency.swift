@@ -21,9 +21,9 @@ extension MoyaProvider {
             return try await withCheckedThrowingContinuation { continuation in
                 provider.request(target) { result in
                     switch result {
-                    case .success(let response):
+                    case let .success(response):
                         switch response.statusCode {
-                        case 200..<400: // success
+                        case 200 ..< 400: // success
                             do {
                                 let res = try T.self(data: response.data)
                                 continuation.resume(returning: res)
@@ -32,7 +32,7 @@ extension MoyaProvider {
                             }
                         case 401: // unauthenticated
                             continuation.resume(throwing: AppError.unauthenticated)
-                        case 400..<500: // error
+                        case 400 ..< 500: // error
                             if let message = JSON(response.data)["message"].string {
                                 continuation.resume(throwing: AppError.other(code: response.statusCode, message: message))
                             } else {
@@ -41,7 +41,7 @@ extension MoyaProvider {
                         default: // server error
                             continuation.resume(throwing: AppError.unexpected)
                         }
-                    case .failure(let error):
+                    case let .failure(error):
                         continuation.resume(throwing: error)
                     }
                 }

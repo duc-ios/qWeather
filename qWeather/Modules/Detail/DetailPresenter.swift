@@ -28,7 +28,7 @@ extension DetailPresenter: DetailPresentationLogic {
             view.event = .view(.loading(isLoading))
         }
     }
-    
+
     func presentAlert(response: Detail.ShowAlert.Response) {
         Task { @MainActor in
             view.event = .view(.alert(title: response.title, message: response.message))
@@ -40,7 +40,7 @@ extension DetailPresenter: DetailPresentationLogic {
             view.event = .view(.error(response.error))
         }
     }
-    
+
     func presentCurrentWeather(response: Detail.GetCurrentWeather.Response) {
         Task { @MainActor in
             view.event = .view(.currentWeather(response.weather))

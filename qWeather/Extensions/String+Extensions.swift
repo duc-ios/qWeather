@@ -12,6 +12,6 @@ extension String {
     var isBlank: Bool { trimmed.isEmpty }
 }
 
-extension Optional<String> {
+extension String? {
     var isNilOrBlank: Bool { (self ?? "").isBlank }
 }

@@ -11,9 +11,9 @@ struct Greeting {
     func text(date: Date) -> String {
         let hour = Calendar.current.component(.hour, from: date)
         switch hour {
-        case 0..<12:
+        case 0 ..< 12:
             return "Good Morning!"
-        case 12..<17:
+        case 12 ..< 17:
             return "Good Afternoon!"
         default:
             return "Good Evening!"

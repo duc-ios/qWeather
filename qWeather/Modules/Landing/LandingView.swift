@@ -53,27 +53,27 @@ struct LandingView: View {
                actions: { Button(L10n.ok) {} },
                message: { Text(store.alertMessage) })
         .onChange(of: store.event) {
-            guard case .router(let event) = $0 else { return }
+            guard case let .router(event) = $0 else { return }
             switch event {
-                case .homeOrOnboarding:
-                    userSettings.isLoaded = true
-                    if userSettings.isOnboarded == true {
-                        router.replace(.home)
-                    } else {
-                        router.replace(.onboarding)
-                    }
+            case .homeOrOnboarding:
+                userSettings.isLoaded = true
+                if userSettings.isOnboarded == true {
+                    router.replace(.home)
+                } else {
+                    router.replace(.onboarding)
+                }
             }
         }
     }
 }
 
 #if DEBUG
-#Preview {
-    NavigationView {
-        LandingView
-            .configured()
-            .environmentObject(UserSettings())
-            .environmentObject(Router())
+    #Preview {
+        NavigationView {
+            LandingView
+                .configured()
+                .environmentObject(UserSettings())
+                .environmentObject(Router())
+        }
     }
-}
 #endif

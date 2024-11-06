@@ -17,8 +17,8 @@ struct RealmDB {
      Initializes the Realm database with a specified configuration.
      - Parameter configuration: The configuration used for initializing the Realm instance. Defaults to a configuration that automatically deletes the Realm file if migration is needed.
      */
-    init(configuration: Realm.Configuration = .init(deleteRealmIfMigrationNeeded: true)) {
-        self.configuration = .init(deleteRealmIfMigrationNeeded: true)
+    init(configuration _: Realm.Configuration = .init(deleteRealmIfMigrationNeeded: true)) {
+        configuration = .init(deleteRealmIfMigrationNeeded: true)
     }
 
     /**
@@ -95,11 +95,11 @@ struct RealmDB {
         results = results.sorted(by: sorts)
         return results.observe {
             switch $0 {
-            case .initial(let results):
+            case let .initial(results):
                 handler(.success(Array(results)))
             case .update(let results, deletions: _, insertions: _, modifications: _):
                 handler(.success(Array(results)))
-            case .error(let error):
+            case let .error(error):
                 handler(.failure(AppError.error(error)))
             }
         }

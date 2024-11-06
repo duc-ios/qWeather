@@ -34,7 +34,7 @@ extension OpenWeatherMapService: TargetType {
 
     var task: Task {
         switch self {
-        case .weather(let lat, let lon):
+        case let .weather(lat, lon):
             return .requestParameters(parameters: [
                 "lat": lat,
                 "lon": lon,

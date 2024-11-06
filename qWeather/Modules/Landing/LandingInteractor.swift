@@ -31,7 +31,7 @@ extension LandingInteractor: LandingBusinessLogic {
     func showError(request: Landing.ShowError.Request) {
         presenter.presentError(response: .init(error: .error(request.error)))
     }
-    
+
     func getCities(request: Landing.GetCities.Request) {
         showLoading(isLoading: true)
         let error = AppError.other(message: "Cannot parse cities json")

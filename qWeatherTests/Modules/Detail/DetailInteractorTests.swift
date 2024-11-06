@@ -72,15 +72,15 @@ final class DetailPresenterMock: DetailPresentationLogic {
         self.isLoading = isLoading
     }
 
-    func presentAlert(response: Detail.ShowAlert.Response) {
+    func presentAlert(response _: Detail.ShowAlert.Response) {
         presentAlertCalled = true
     }
 
-    func presentError(response: Detail.ShowError.Response) {
+    func presentError(response _: Detail.ShowError.Response) {
         presentErrorCalled = true
     }
 
-    func presentCurrentWeather(response: Detail.GetCurrentWeather.Response) {
+    func presentCurrentWeather(response _: Detail.GetCurrentWeather.Response) {
         presentCurrentWeatherCalled = true
     }
 }
@@ -88,7 +88,7 @@ final class DetailPresenterMock: DetailPresentationLogic {
 // MARK: - WeatherRepositoryMock
 
 final class WeatherRepositoryMock: WeatherRepository {
-    func getCurrentWeather(lat: Double, lon: Double) async throws -> qWeather.WeatherModel {
+    func getCurrentWeather(lat _: Double, lon _: Double) async throws -> qWeather.WeatherModel {
         dummyWeather
     }
 }

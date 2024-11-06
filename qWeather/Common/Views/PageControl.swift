@@ -44,10 +44,10 @@ struct PageControl: View {
 }
 
 #if DEBUG
-#Preview {
-    @State var selectedIndex = 0
-    return Color.blue.overlay {
-        PageControl(totalIndex: 3, selectedIndex: $selectedIndex)
+    #Preview {
+        @State var selectedIndex = 0
+        return Color.blue.overlay {
+            PageControl(totalIndex: 3, selectedIndex: $selectedIndex)
+        }
     }
-}
 #endif

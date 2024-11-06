@@ -13,10 +13,10 @@ struct CachedAsyncImage<Content: View, PlaceholderView: View>: View {
     var url: URL?
     @ViewBuilder var content: (Image) -> Content
     @ViewBuilder var placeholder: () -> PlaceholderView
-    
+
     /// Downloaded image
     @State var image: UIImage? = nil
-    
+
     init(
         url: URL?,
         @ViewBuilder content: @escaping (Image) -> Content,
@@ -26,7 +26,7 @@ struct CachedAsyncImage<Content: View, PlaceholderView: View>: View {
         self.content = content
         self.placeholder = placeholder
     }
-    
+
     var body: some View {
         VStack {
             if let uiImage = image {
@@ -41,26 +41,26 @@ struct CachedAsyncImage<Content: View, PlaceholderView: View>: View {
             }
         }
     }
-    
+
     /// Downloads if the image is not cached already
     /// Otherwise returns from the cache
     private func downloadPhoto() async -> UIImage? {
         do {
             guard let url else { return nil }
-            
+
             // Check if the image is cached already
             if let cachedResponse = URLCache.shared.cachedResponse(for: .init(url: url)) {
                 return UIImage(data: cachedResponse.data)
             } else {
                 let (data, response) = try await URLSession.shared.data(from: url)
-                
+
                 // Save returned image data into the cache
                 URLCache.shared.storeCachedResponse(.init(response: response, data: data), for: .init(url: url))
-                
+
                 guard let image = UIImage(data: data) else {
                     return nil
                 }
-                
+
                 return image
             }
         } catch {

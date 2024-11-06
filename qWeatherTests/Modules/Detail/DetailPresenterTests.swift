@@ -15,16 +15,16 @@ import XCTest
 final class DetailPresenterTests: XCTestCase {
     private var sut: DetailPresenter!
     private var view: DetailViewMock!
-    
+
     override func setUp() {
         super.setUp()
-        
+
         UIView.setAnimationsEnabled(false)
-        
+
         view = DetailViewMock()
         sut = DetailPresenter(view: view)
     }
-    
+
     override func tearDown() {
         sut = nil
 
@@ -32,26 +32,26 @@ final class DetailPresenterTests: XCTestCase {
 
         super.tearDown()
     }
-    
+
     func testGetGreetings() {
         // Given
         let response = Detail.GetCurrentWeather.Response(weather: dummyWeather)
-        
+
         // When
         sut.presentCurrentWeather(response: response)
-        
+
         // Then
         XCTAssertEqual(view.name, dummyWeather.name)
         XCTAssertEqual(view.temp, dummyWeather.main.temp)
     }
-    
+
     func testDisplayError() {
         // Given
         let error = AppError.unexpected
-        
+
         // When
         sut.presentError(response: .init(error: error))
-        
+
         // Then
         XCTAssertEqual(view.alertTitle, error.title)
         XCTAssertEqual(view.alertMessage, error.message)
@@ -67,20 +67,20 @@ final class DetailViewMock: DetailDisplayLogic {
     var displayAlert = false
     var name: String?
     var temp: String?
-    
+
     var event: DetailEvent? {
         didSet {
-            guard case .view(let event) = event else { return }
+            guard case let .view(event) = event else { return }
             switch event {
-            case .alert(let title, let message):
+            case let .alert(title, message):
                 alertTitle = title
                 alertMessage = message
                 displayAlert = true
-            case .error(let error):
+            case let .error(error):
                 alertTitle = error.title
                 alertMessage = error.message
                 displayAlert = true
-            case .currentWeather(let weather):
+            case let .currentWeather(weather):
                 name = weather.name
                 temp = weather.main.temp
             default:

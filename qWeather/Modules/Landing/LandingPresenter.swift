@@ -33,8 +33,8 @@ extension LandingPresenter: LandingPresentationLogic {
             view.event = .view(.error(response.error))
         }
     }
-    
-    func presentHomeOrOnBoarding(response: Landing.GetCities.Response) {
+
+    func presentHomeOrOnBoarding(response _: Landing.GetCities.Response) {
         Task { @MainActor in
             view.event = .router(.homeOrOnboarding)
         }

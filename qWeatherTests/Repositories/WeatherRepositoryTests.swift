@@ -11,25 +11,25 @@ import XCTest
 
 final class WeatherRepositoryTests: XCTestCase {
     private var sut: WeatherRepository!
-    
+
     override func setUp() {
         super.setUp()
-        
+
         sut = WeatherRepositoryImp()
     }
-    
+
     override func tearDown() {
         sut = nil
-        
+
         super.tearDown()
     }
-    
+
     func testGetCurrentWeather() {
         // given
         let lat = 10.75
         let lon = 106.6667
         let promise = expectation(description: "Current Weather Received")
-        
+
         // when
         Task {
             do {

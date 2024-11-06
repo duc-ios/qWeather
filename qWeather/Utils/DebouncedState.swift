@@ -13,8 +13,7 @@ class DebounceState<Value>: ObservableObject {
     @Published var currentValue: Value
     @Published var debouncedValue: Value
 
-    init(initialValue: Value, delay: Double = 0.5)
-    {
+    init(initialValue: Value, delay: Double = 0.5) {
         _currentValue = .init(initialValue: initialValue)
         _debouncedValue = .init(initialValue: initialValue)
 

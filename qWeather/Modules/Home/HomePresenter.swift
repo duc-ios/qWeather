@@ -30,7 +30,7 @@ extension HomePresenter: HomePresentationLogic {
             view.event = .view(.loading(isLoading))
         }
     }
-    
+
     func presentAlert(response: Home.ShowAlert.Response) {
         Task { @MainActor in
             view.event = .view(.alert(title: response.title, message: response.message))
@@ -42,19 +42,19 @@ extension HomePresenter: HomePresentationLogic {
             view.event = .view(.error(response.error))
         }
     }
-    
+
     func presentGreeting(response: Home.GetGreeting.Response) {
         Task { @MainActor in
             view.event = .view(.greeting(response.greeting))
         }
     }
-    
+
     func presentSavedCities(response: Home.GetSavedCities.Response) {
         Task { @MainActor in
             view.event = .view(.savedCities(response.savedCities))
         }
     }
-    
+
     func presentCities(response: Home.SearchCities.Response) {
         Task { @MainActor in
             view.event = .view(.cities(response.cities))

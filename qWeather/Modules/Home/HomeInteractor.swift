@@ -31,10 +31,10 @@ class HomeInteractor {
             try repository.observe("isSaved = true", sorts: [("country", true), ("name", true)]) { [weak self] in
                 guard let self else { return }
                 switch $0 {
-                case .success(let cities):
+                case let .success(cities):
                     self.savedCities = Array(cities)
                     presenter.presentSavedCities(response: .init(savedCities: self.savedCities))
-                case .failure(let error):
+                case let .failure(error):
                     presenter.presentError(response: .init(error: error))
                 }
             }

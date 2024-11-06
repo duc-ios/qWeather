@@ -15,7 +15,7 @@ final class LandingDataStore: BaseDataStore<LandingEvent>, LandingDisplayLogic {
         $event
             .receive(on: DispatchQueue.main)
             .compactMap {
-                guard case .view(let event) = $0 else { return nil }
+                guard case let .view(event) = $0 else { return nil }
                 dump(event)
                 return event
             }
@@ -25,13 +25,13 @@ final class LandingDataStore: BaseDataStore<LandingEvent>, LandingDisplayLogic {
 
     func reduce(_ event: LandingEvent.View) {
         switch event {
-        case .loading(let isLoading):
+        case let .loading(isLoading):
             self.isLoading = isLoading
-        case .alert(let title, let message):
+        case let .alert(title, message):
             alertTitle = title
             alertMessage = message
             displayAlert = true
-        case .error(let error):
+        case let .error(error):
             self.event = .view(.alert(title: error.title, message: error.message))
         }
     }

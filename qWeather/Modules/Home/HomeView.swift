@@ -51,7 +51,8 @@ struct HomeView: View {
                                      saveAction: {
                                          interactor.updateCity(request: .init(
                                              cityId: city.id,
-                                             isSaved: !(city.isSaved ?? false))
+                                             isSaved: !(city.isSaved ?? false)
+                                         )
                                          )
                                      })
                         }
@@ -70,7 +71,8 @@ struct HomeView: View {
                                      saveAction: {
                                          interactor.updateCity(request: .init(
                                              cityId: city.id,
-                                             isSaved: !(city.isSaved ?? false))
+                                             isSaved: !(city.isSaved ?? false)
+                                         )
                                          )
                                      })
                         }
@@ -81,7 +83,8 @@ struct HomeView: View {
         .searchable_iOS16(
             text: $keyword.currentValue,
             isPresented: $store.isSearching,
-            placement: .automatic)
+            placement: .automatic
+        )
         .navigationTitle(store.greeting)
         .navigationBarBackButtonHidden()
         .alert(store.alertTitle,
@@ -98,11 +101,11 @@ struct HomeView: View {
 }
 
 #if DEBUG
-#Preview {
-    NavigationView {
-        HomeView
-            .configured()
-            .environmentObject(Router())
+    #Preview {
+        NavigationView {
+            HomeView
+                .configured()
+                .environmentObject(Router())
+        }
     }
-}
 #endif

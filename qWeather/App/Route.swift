@@ -26,7 +26,7 @@ enum Route: Hashable {
                 OnboardingView()
             case .home:
                 HomeView.configured()
-            case .detail(let city):
+            case let .detail(city):
                 DetailView.configured(city: city)
             }
         }
@@ -38,7 +38,7 @@ enum Route: Hashable {
 class Router: ObservableObject {
     @Published var current: Route = .landing
     @Published var path = [Route]()
-    
+
     func show(_ route: Route) {
         path.append(route)
     }
